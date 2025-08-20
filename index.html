@@ -81,16 +81,15 @@
 <body class="bg-gray-50">
 
 <!-- Navbar -->
-<nav class="bg-[#5A3A1B] text-white p-4 flex justify-between items-center shadow-lg">
-  <div class="flex items-center space-x-2 space-x-reverse">
+<nav class="bg-[#5A3A1B] text-white p-4 flex flex-col sm:flex-row justify-between items-center shadow-lg">
+  <div class="flex items-center space-x-2 space-x-reverse mb-2 sm:mb-0">
     <img src="images/logo-edu.jpg" alt="شعار" 
          class="w-12 h-12 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 hover:rotate-3">
     <h1 class="text-2xl font-bold">رحلة تالتة ثانوي</h1>
   </div>
-  <div class="space-x-4 space-x-reverse flex">
+  <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 space-x-reverse">
     <a href="index.html" 
-       class="relative px-3 py-2 transition-all duration-300 
-              hover:text-[#F4A261] hover:scale-110 
+       class="relative px-3 py-2 transition-all duration-300 hover:text-[#F4A261] hover:scale-110 
               after:content-[''] after:absolute after:left-0 after:bottom-0 
               after:w-0 after:h-[3px] after:bg-[#F4A261] after:transition-all after:duration-500 
               hover:after:w-full">
@@ -98,8 +97,7 @@
     </a>
 
     <a href="course1.html" 
-       class="relative px-3 py-2 transition-all duration-300 
-              hover:text-[#2A9D8F] hover:scale-110 
+       class="relative px-3 py-2 transition-all duration-300 hover:text-[#2A9D8F] hover:scale-110 
               after:content-[''] after:absolute after:left-0 after:bottom-0 
               after:w-0 after:h-[3px] after:bg-[#2A9D8F] after:transition-all after:duration-500 
               hover:after:w-full">
@@ -107,8 +105,7 @@
     </a>
 
     <a href="course2.html" 
-       class="relative px-3 py-2 transition-all duration-300 
-              hover:text-[#F4A261] hover:scale-110 
+       class="relative px-3 py-2 transition-all duration-300 hover:text-[#F4A261] hover:scale-110 
               after:content-[''] after:absolute after:left-0 after:bottom-0 
               after:w-0 after:h-[3px] after:bg-[#F4A261] after:transition-all after:duration-500 
               hover:after:w-full">
@@ -116,8 +113,7 @@
     </a>
 
     <a href="contact.html" 
-       class="relative px-3 py-2 transition-all duration-300 
-              hover:text-[#2A9D8F] hover:scale-110 
+       class="relative px-3 py-2 transition-all duration-300 hover:text-[#2A9D8F] hover:scale-110 
               after:content-[''] after:absolute after:left-0 after:bottom-0 
               after:w-0 after:h-[3px] after:bg-[#2A9D8F] after:transition-all after:duration-500 
               hover:after:w-full">
@@ -126,69 +122,63 @@
   </div>
 </nav>
 
-  <!-- Hero -->
-  <section class="text-center py-24 bg-[color:var(--brown)] text-white relative overflow-hidden">
-    <!-- دوائر -->
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
+<!-- Hero -->
+<section class="text-center py-24 bg-[color:var(--brown)] text-white relative overflow-hidden">
+  <!-- دوائر -->
+  <div class="circle sm:hidden"></div>
+  <div class="circle sm:hidden"></div>
+  <div class="circle sm:hidden"></div>
 
-    <h2 
-      class="text-6xl font-extrabold mb-6 relative z-10" 
-      data-aos="zoom-in" 
-      data-aos-duration="1400"
-    >
-      ابدأ رحلتك للنجاح معانا 🚀
-    </h2>
+  <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 relative z-10" 
+      data-aos="zoom-in" data-aos-duration="1400">
+    ابدأ رحلتك للنجاح معانا 🚀
+  </h2>
 
-    <p 
-      class="mb-10 text-2xl relative z-10" 
-      data-aos="fade-up" 
-      data-aos-delay="400"
-    >
-      أفضل أنظمة تأسيس ومتابعة ذكية لطلاب الثانوية العامة
-    </p>
-  </section>
+  <p class="mb-10 text-lg sm:text-xl md:text-2xl relative z-10" 
+     data-aos="fade-up" data-aos-delay="400">
+    أفضل أنظمة تأسيس ومتابعة ذكية لطلاب الثانوية العامة
+  </p>
+</section>
 
-  <!-- Courses Section (القديم بشكل منظم) -->
-  <section class="container mx-auto py-16 px-6 grid md:grid-cols-2 gap-8">
-    <!-- كورس التأسيس -->
-     <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition" data-aos="fade-right">
-      <div class="p-6">
-        <h3 class="text-2xl font-bold text-[color:var(--brown)] mb-4">📚 نظام التأسيس</h3>
-        <p class="text-gray-700 mb-6">
-          ابدأ من الأساس بخطة 11 يوم تأسيسية مع تدريبات واختبارات يومية تساعدك تبني قاعدة قوية.
-        </p>
-        <a href="course1.html" class="btn-detail">اعرف التفاصيل</a>
-      </div>
+<!-- Courses Section -->
+<section class="container mx-auto py-16 px-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8">
+  <!-- كورس التأسيس -->
+   <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition" data-aos="fade-right">
+    <div class="p-6">
+      <h3 class="text-2xl font-bold text-[color:var(--brown)] mb-4">📚 نظام التأسيس</h3>
+      <p class="text-gray-700 mb-6">
+        ابدأ من الأساس بخطة 11 يوم تأسيسية مع تدريبات واختبارات يومية تساعدك تبني قاعدة قوية.
+      </p>
+      <a href="course1.html" class="btn-detail">اعرف التفاصيل</a>
     </div>
+  </div>
 
-    <!-- كورس المتابعة -->
-    <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition" data-aos="fade-left">
-      <div class="p-6">
-        <h3 class="text-2xl font-bold text-[color:var(--brown)] mb-4">🎓 المتابعة الذكية</h3>
-        <p class="text-gray-700 mb-6">
-          ذاكر أول بأول بخطة منظمة + متابعة شخصية وجروب أسئلة أسبوعيًا عشان تضمن تقدمك.
-        </p>
-        <a href="course2.html" class="btn-detail">اعرف التفاصيل</a>
-      </div>
+  <!-- كورس المتابعة -->
+  <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition" data-aos="fade-left">
+    <div class="p-6">
+      <h3 class="text-2xl font-bold text-[color:var(--brown)] mb-4">🎓 المتابعة الذكية</h3>
+      <p class="text-gray-700 mb-6">
+        ذاكر أول بأول بخطة منظمة + متابعة شخصية وجروب أسئلة أسبوعيًا عشان تضمن تقدمك.
+      </p>
+      <a href="course2.html" class="btn-detail">اعرف التفاصيل</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Social Buttons -->
-  <section class="text-center py-8" data-aos="zoom-in">
-    <a href="https://t.me/Thana_Way" target="_blank" class="social-btn telegram">📢 قناة رحلة تالتة ثانوي</a>
-    <a href="https://t.me/ThanaWay_bot" target="_blank" class="social-btn bot">🤖 بوت رحلة تالتة ثانوي</a>
-  </section>
+<!-- Social Buttons -->
+<section class="text-center py-8" data-aos="zoom-in">
+  <a href="https://t.me/Thana_Way" target="_blank" class="social-btn telegram">📢 قناة رحلة تالتة ثانوي</a>
+  <a href="https://t.me/ThanaWay_bot" target="_blank" class="social-btn bot">🤖 بوت رحلة تالتة ثانوي</a>
+</section>
 
-  <!-- Footer -->
-  <footer class="bg-[color:var(--brown)] text-white py-6 mt-16 text-center" data-aos="fade-up">
-    <p>© 2025 جميع الحقوق محفوظة لموقع رحلة تالتة ثانوي</p>
-  </footer>
+<!-- Footer -->
+<footer class="bg-[color:var(--brown)] text-white py-6 mt-16 text-center px-4" data-aos="fade-up">
+  <p>© 2025 جميع الحقوق محفوظة لموقع رحلة تالتة ثانوي</p>
+</footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1200, once: true });
-  </script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1200, once: true });
+</script>
 </body>
 </html>
