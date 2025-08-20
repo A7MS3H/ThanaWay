@@ -8,211 +8,152 @@
   <script src="https://cdn.tailwindcss.com"></script>  
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">  
 
- <style>
-  body { 
-    font-family: 'Cairo', sans-serif; 
-    background: #53391e; /* البني الغامق الأساسي */
-    color: #fff;
-  }
+  <style>
+    body { 
+      font-family: 'Cairo', sans-serif; 
+      background: #53391e;
+      color: #fff;
+    }
 
-  /* متغيرات الألوان مأخوذة من اللوجو */
-  :root {
-    --brown: #53391e;   /* خلفية أساسية */
-    --light-brown: #9b7b5c; 
-    --orange: #d87b2f;  
-    --cyan: #3fa7a3;    
-    --blue: #4a90e2;    
-    --green: #4CAF50;   
-    --pink: #e94e77;    
-  }
+    :root {
+      --brown: #53391e;
+      --light-brown: #9b7b5c; 
+      --orange: #d87b2f;  
+      --cyan: #3fa7a3;    
+      --blue: #4a90e2;    
+      --green: #4CAF50;   
+      --pink: #e94e77;    
+    }
 
-  /* خلفيات متدرجة */
-  .gradient-bg { 
-    background: linear-gradient(135deg, var(--light-brown), var(--orange)); 
-  }
+    .gradient-bg { 
+      background: linear-gradient(135deg, var(--light-brown), var(--orange)); 
+    }
 
-  /* الكروت */
-  .card {
-    background: #e6d3bb;
-    color: #333;
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    transition: all 0.3s ease-in-out;
-  }
+    .card {
+      background: #e6d3bb;
+      color: #333;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: all 0.3s ease-in-out;
+    }
 
-  .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
-  }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    }
 
-  /* الأزرار */
-  .btn {
-    display: inline-block;
-    background: var(--orange);
-    color: #ffffff;
-    font-weight: bold;
-    padding: 0.75rem 1.5rem;
-    border-radius: 999px;
-    transition: transform 0.2s ease, background 0.3s ease;
-  }
+    .btn {
+      display: inline-block;
+      background: var(--orange);
+      color: #ffffff;
+      font-weight: bold;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
 
-  .btn:hover {
-    transform: scale(1.1);
-    background: var(--cyan);
-  }
-</style>
+    .btn:hover {
+      transform: scale(1.05);
+      background: var(--cyan);
+    }
 
+    .animated-gradient {
+      background: linear-gradient(270deg, #9b7b5c, #aa885b, #53391e);
+      background-size: 600% 600%;
+      animation: gradientAnimation 12s ease infinite;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
 </head>
 
-<body>  
+<body>
 <!-- Navbar -->
-<nav class="bg-[#5A3A1B] text-white p-4 flex justify-between items-center shadow-lg">
+<nav class="bg-[#5A3A1B] text-white p-4 flex flex-wrap justify-between items-center shadow-lg">
   <div class="flex items-center space-x-2 space-x-reverse">
     <img src="images/logo-edu.jpg" alt="شعار" 
          class="w-12 h-12 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 hover:-translate-y-1">
-    <h1 class="text-2xl font-bold transition-transform duration-300 hover:scale-110 hover:-translate-y-1">
-  رحلة تالتة ثانوي
-</h1>
+    <h1 class="text-xl sm:text-2xl font-bold transition-transform duration-300 hover:scale-110 hover:-translate-y-1">
+      رحلة تالتة ثانوي
+    </h1>
   </div>
-  <div class="space-x-4 space-x-reverse flex">
-    <a href="index.html" 
-       class="relative px-3 py-2 transition-all duration-300 
-              hover:text-[#F4A261] hover:scale-110 
-              after:content-[''] after:absolute after:left-0 after:bottom-0 
-              after:w-0 after:h-[3px] after:bg-[#F4A261] after:transition-all after:duration-500 
-              hover:after:w-full">
-       الرئيسية
-    </a>
-
-    <a href="course1.html" 
-       class="relative px-3 py-2 transition-all duration-300 
-              hover:text-[#2A9D8F] hover:scale-110 
-              after:content-[''] after:absolute after:left-0 after:bottom-0 
-              after:w-0 after:h-[3px] after:bg-[#2A9D8F] after:transition-all after:duration-500 
-              hover:after:w-full">
-       نظام التأسيس
-    </a>
-
-    <a href="course2.html" 
-       class="relative px-3 py-2 transition-all duration-300 
-              hover:text-[#F4A261] hover:scale-110 
-              after:content-[''] after:absolute after:left-0 after:bottom-0 
-              after:w-0 after:h-[3px] after:bg-[#F4A261] after:transition-all after:duration-500 
-              hover:after:w-full">
-       المتابعة الذكية
-    </a>
-
-    <a href="contact.html" 
-       class="relative px-3 py-2 transition-all duration-300 
-              hover:text-[#2A9D8F] hover:scale-110 
-              after:content-[''] after:absolute after:left-0 after:bottom-0 
-              after:w-0 after:h-[3px] after:bg-[#2A9D8F] after:transition-all after:duration-500 
-              hover:after:w-full">
-       تواصل معنا
-    </a>
+  <div class="space-x-2 sm:space-x-4 space-x-reverse flex flex-wrap mt-2 sm:mt-0">
+    <a href="index.html" class="relative px-3 py-2 transition-all duration-300 hover:text-[#F4A261] hover:scale-105 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-[#F4A261] after:transition-all after:duration-500 hover:after:w-full">الرئيسية</a>
+    <a href="course1.html" class="relative px-3 py-2 transition-all duration-300 hover:text-[#2A9D8F] hover:scale-105 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-[#2A9D8F] after:transition-all after:duration-500 hover:after:w-full">نظام التأسيس</a>
+    <a href="course2.html" class="relative px-3 py-2 transition-all duration-300 hover:text-[#F4A261] hover:scale-105 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-[#F4A261] after:transition-all after:duration-500 hover:after:w-full">المتابعة الذكية</a>
+    <a href="contact.html" class="relative px-3 py-2 transition-all duration-300 hover:text-[#2A9D8F] hover:scale-105 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-[#2A9D8F] after:transition-all after:duration-500 hover:after:w-full">تواصل معنا</a>
   </div>
 </nav>
-<!-- Hero -->  
-<section class="relative text-center py-24 text-white overflow-hidden animated-gradient" data-aos="zoom-in">    
-  <h2 class="text-6xl font-extrabold mb-6 animate-bounce drop-shadow-lg">
-    📚 البداية الصح
-  </h2>    
 
-  <p class="text-xl max-w-2xl mx-auto leading-relaxed drop-shadow">
-    ابدأ من الأساس وتعلم بشكل منظم قبل ما تغرق في التفاصيل 💡
-  </p>  
-
-  <!-- شكل موجة للفصل بين الأقسام -->
+<!-- Hero -->
+<section class="relative text-center py-20 sm:py-24 text-white overflow-hidden animated-gradient" data-aos="zoom-in">
+  <h2 class="text-3xl sm:text-6xl font-extrabold mb-4 sm:mb-6 animate-bounce drop-shadow-lg">📚 البداية الصح</h2>
+  <p class="text-base sm:text-xl max-w-xl mx-auto leading-relaxed drop-shadow">ابدأ من الأساس وتعلم بشكل منظم قبل ما تغرق في التفاصيل 💡</p>
   <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180">
-    <svg class="relative block w-full h-16" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1200 120">
+    <svg class="relative block w-full h-12 sm:h-16" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1200 120">
       <path d="M985.66 92.83C906.67 72 823.78 31 743.84 14.19 661.52-3.1 578.54-3.1 496.22 14.19 416.28 31 333.39 72 254.4 92.83c-89.56 22.87-179.11 22.87-268.67 0V120h1200V92.83c-89.56 22.87-179.11 22.87-268.67 0z" fill="#fff"></path>
     </svg>
   </div>
 </section>
 
-<style>
-  /* أنيميشن للباك جراوند */
-  .animated-gradient {
-    background: linear-gradient(270deg, #9b7b5c, #aa885b, #53391e);
-    background-size: 600% 600%;
-    animation: gradientAnimation 12s ease infinite;
-  }
-
-  @keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-</style>
 <!-- Features -->
-<section class="container mx-auto py-20 px-6 grid md:grid-cols-3 gap-10">
-  <!-- خطة تأسيس -->
-  <div class="card border-t-4 border-[#2A9D8F] hover:scale-105 transition-transform duration-300" data-aos="fade-up">
-    <h3 class="text-2xl font-bold text-[#2A9D8F] mb-3">✅ خطة تأسيس</h3>
+<section class="container mx-auto py-10 sm:py-20 px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-10">
+  <div class="card border-t-4 border-[#2A9D8F]" data-aos="fade-up">
+    <h3 class="text-xl sm:text-2xl font-bold text-[#2A9D8F] mb-2 sm:mb-3">✅ خطة تأسيس</h3>
     <p>خطة تأسيس 11 يوم تشمل الشرح والتدريب.</p>
   </div>
-
-  <!-- شرح + تدريب + اختبار -->
-  <div class="card border-t-4 border-[#E76F51] hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
-    <h3 class="text-2xl font-bold text-[#E76F51] mb-3">📖 شرح + تدريب + اختبار</h3>
+  <div class="card border-t-4 border-[#E76F51]" data-aos="fade-up" data-aos-delay="200">
+    <h3 class="text-xl sm:text-2xl font-bold text-[#E76F51] mb-2 sm:mb-3">📖 شرح + تدريب + اختبار</h3>
     <p>تتعلم الدرس + تدريب عملي + اختبار لقياس مستواك.</p>
   </div>
-
-  <!-- متابعة يومية -->
-  <div class="card border-t-4 border-[#264653] hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="400">
-    <h3 class="text-2xl font-bold text-[#264653] mb-3">📝 متابعة يومية</h3>
+  <div class="card border-t-4 border-[#264653]" data-aos="fade-up" data-aos-delay="400">
+    <h3 class="text-xl sm:text-2xl font-bold text-[#264653] mb-2 sm:mb-3">📝 متابعة يومية</h3>
     <p>متابعة يومية مع تقييم مستمر لمستواك.</p>
   </div>
-
-  <!-- بداية قوية -->
-  <div class="card border-t-4 border-[#F4A261] hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="600">
-    <h3 class="text-2xl font-bold text-[#F4A261] mb-3">💡 بداية قوية</h3>
+  <div class="card border-t-4 border-[#F4A261]" data-aos="fade-up" data-aos-delay="600">
+    <h3 class="text-xl sm:text-2xl font-bold text-[#F4A261] mb-2 sm:mb-3">💡 بداية قوية</h3>
     <p>تضمن بداية منظمة وقوية قبل الامتحانات.</p>
   </div>
-
-  <!-- تسليم مهام -->
-  <div class="card border-t-4 border-[#6A4C93] hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="800">
-    <h3 class="text-2xl font-bold text-[#6A4C93] mb-3">📤 تسليم مهام</h3>
+  <div class="card border-t-4 border-[#6A4C93]" data-aos="fade-up" data-aos-delay="800">
+    <h3 class="text-xl sm:text-2xl font-bold text-[#6A4C93] mb-2 sm:mb-3">📤 تسليم مهام</h3>
     <p>تسليم واجباتك وتاسكاتك أول بأول مع متابعة من المدرس.</p>
   </div>
-
-  <!-- نصائح يومية -->
-  <div class="card border-t-4 border-[#E9C46A] hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="1000">
-    <h3 class="text-2xl font-bold text-[#E9C46A] mb-3">💡 نصائح يومية</h3>
+  <div class="card border-t-4 border-[#E9C46A]" data-aos="fade-up" data-aos-delay="1000">
+    <h3 class="text-xl sm:text-2xl font-bold text-[#E9C46A] mb-2 sm:mb-3">💡 نصائح يومية</h3>
     <p>استقبال نصائح يومية تساعدك على المذاكرة بشكل أفضل.</p>
   </div>
 </section>
 
-<!-- Price Card (مميز) -->    
-<div class="mx-auto max-w-xl my-16 relative" data-aos="zoom-in">
-  <div class="card text-center py-12 px-6 shadow-2xl border-t-8 border-[#2A9D8F]">
-    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-[#2A9D8F] text-white px-6 py-2 rounded-full text-lg font-bold shadow-lg">
+<!-- Price Card -->
+<div class="mx-auto max-w-xl my-10 sm:my-16 relative" data-aos="zoom-in">
+  <div class="card text-center py-8 sm:py-12 px-4 sm:px-6 shadow-2xl border-t-8 border-[#2A9D8F]">
+    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-[#2A9D8F] text-white px-4 sm:px-6 py-1 sm:py-2 rounded-full text-sm sm:text-lg font-bold shadow-lg">
       🎉 عرض خاص
     </div>
-    <h3 class="text-3xl font-extrabold mb-4 text-[#E76F51]">💰 سعر الاشتراك</h3>
-    <p class="text-5xl font-extrabold text-[#2A9D8F] mb-4">50<span class="text-2xl">جنيه</span></p>
-    <p class="text-lg text-gray-700">اشترك دلوقتي واستفيد بكل المميزات</p>
+    <h3 class="text-2xl sm:text-3xl font-extrabold mb-2 sm:mb-4 text-[#E76F51]">💰 سعر الاشتراك</h3>
+    <p class="text-4xl sm:text-5xl font-extrabold text-[#2A9D8F] mb-2 sm:mb-4">50<span class="text-xl sm:text-2xl">جنيه</span></p>
+    <p class="text-sm sm:text-lg text-gray-700">اشترك دلوقتي واستفيد بكل المميزات</p>
   </div>
 </div>
 
 <!-- CTA -->  
-<div class="flex justify-center py-10" data-aos="flip-up">    
-  <a href="payment.html" class="btn bg-[#2A9D8F]">🚀 اشترك دلوقتي</a>    
+<div class="flex justify-center py-6 sm:py-10" data-aos="flip-up">    
+  <a href="payment.html" class="btn">🚀 اشترك دلوقتي</a>    
 </div>  
 
+<!-- Footer -->
+<footer class="bg-[color:var(--brown)] text-white py-6 mt-10 sm:mt-16 text-center" data-aos="fade-up">
+  <p>© 2025 جميع الحقوق محفوظة لموقع رحلة تالتة ثانوي</p>
+</footer>
 
-
-
-
-    <!-- Footer -->
-  <footer class="bg-[color:var(--brown)] text-white py-6 mt-16 text-center" data-aos="fade-up">
-    <p>© 2025 جميع الحقوق محفوظة لموقع رحلة تالتة ثانوي</p>
-  </footer>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1200, once: true });
-  </script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1200, once: true });
+</script>
 </body>
 </html>
