@@ -8,21 +8,49 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    body { font-family: 'Cairo', sans-serif; background: #FCECDC; }
-    .gradient-bg { 
-      background: linear-gradient(-45deg, #5A3A1B, #2A9D8F, #E76F51, #9b7b5c); 
-      background-size: 400% 400%;
-      animation: gradientMove 12s ease infinite;
+    :root {
+      --brown: #5A3A1B;      /* اللون الأساسي للموقع */
+      --orange: #F4A261;     /* لون أزرار وعناوين */
+      --cyan: #2A9D8F;       /* لون مميز للعناصر الهامة */
+      --beige: #FCECDC;      /* خلفية فاتحة مريحة */
     }
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--beige);
+      color: #333;
     }
-    .btn { @apply px-6 py-3 rounded-2xl text-white font-bold shadow-lg transition-transform duration-300; }
-    .btn:hover { transform: scale(1.15) rotate(-1deg); }
-    .card { @apply bg-white rounded-2xl shadow-xl p-6 transition-transform duration-500; }
-    .card:hover { transform: translateY(-8px) scale(1.05); }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, var(--cyan), var(--orange));
+    }
+
+    /* Navbar */
+    nav a {
+      text-decoration: none;
+    }
+
+    /* الأزرار */
+    .btn {
+      @apply px-6 py-3 rounded-2xl font-bold shadow-lg text-white transition-transform duration-300;
+    }
+    .btn:hover { transform: scale(1.05); }
+
+    /* الكروت */
+    .card {
+      @apply bg-white rounded-2xl shadow-xl p-6 relative overflow-hidden;
+      border-top-width: 4px;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+
+    /* تحسين تجاوب الـ navbar على الموبايل */
+    @media (max-width: 640px) {
+      nav div.flex-col { width: 100%; }
+      nav a { width: 100%; text-align: center; }
+    }
   </style>
 </head>
 <body>
@@ -47,51 +75,41 @@
   </div>
 </nav>
 
+<!-- Hero -->
+<section class="text-center py-20 gradient-bg text-white" data-aos="zoom-in">
+  <h2 class="text-5xl font-extrabold mb-6 animate-bounce">📞 تواصل معنا</h2>
+  <p class="text-lg sm:text-xl">لو عندك أي استفسار، إحنا معاك خطوة بخطوة 🤝</p>
+</section>
 
-  <!-- Hero -->
-  <section class="text-center py-20 gradient-bg text-white" data-aos="zoom-in">
-    <h2 class="text-5xl font-extrabold mb-6 animate-bounce">📞 تواصل معنا</h2>
-    <p class="text-lg">لو عندك أي استفسار، إحنا معاك خطوة بخطوة 🤝</p>
-  </section>
-
- <!-- Contact Options -->
 <!-- Contact Options -->
 <section class="container mx-auto py-20 px-6 grid md:grid-cols-2 gap-10">
-
   <!-- قناة التليجرام -->
   <a href="https://t.me/Thana_Way" target="_blank"
-     class="card text-center shadow-lg shadow-gray-200 hover:shadow-[#2A9D8F]/70 hover:scale-105 hover:animate-pulse transition-all duration-500 group block p-6 rounded-2xl">
+     class="card text-center shadow-lg hover:shadow-[#2A9D8F]/70 hover:scale-105 hover:animate-pulse transition-all duration-500 group block p-6 rounded-2xl">
     <div class="text-5xl mb-4 transition-transform duration-500 group-hover:animate-bounce">📢</div>
-    <h3 class="text-2xl font-extrabold mb-2 text-[#2A9D8F]">قناة التليجرام</h3>
+    <h3 class="text-2xl font-extrabold mb-2 text-[color:var(--cyan)]">قناة التليجرام</h3>
     <p class="mb-6 text-gray-600 text-lg">انضم للقناة عشان توصلك كل التحديثات أول بأول 🚀</p>
-    <span class="btn bg-[#2A9D8F] hover:bg-[#21867a] inline-block">🔗 انضم الآن</span>
+    <span class="btn bg-[color:var(--cyan)] hover:bg-[#21867a] inline-block">🔗 انضم الآن</span>
   </a>
 
   <!-- الدعم المباشر -->
   <a href="https://t.me/ThanaWay_team" target="_blank"
-     class="card text-center shadow-lg shadow-gray-200 hover:shadow-[#E76F51]/70 hover:scale-105 hover:animate-pulse transition-all duration-500 group block p-6 rounded-2xl">
+     class="card text-center shadow-lg hover:shadow-[#E76F51]/70 hover:scale-105 hover:animate-pulse transition-all duration-500 group block p-6 rounded-2xl">
     <div class="text-5xl mb-4 transition-transform duration-500 group-hover:animate-bounce">🤝</div>
-    <h3 class="text-2xl font-extrabold mb-2 text-[#E76F51]">الدعم المباشر</h3>
+    <h3 class="text-2xl font-extrabold mb-2 text-[color:var(--orange)]">الدعم المباشر</h3>
     <p class="mb-6 text-gray-600 text-lg">لو محتاج مساعدة أو عندك استفسار 📝 راسلنا في أي وقت</p>
-    <span class="btn bg-[#E76F51] hover:bg-[#d65b3e] inline-block">📞 راسلنا الآن</span>
+    <span class="btn bg-[color:var(--orange)] hover:bg-[#d65b3e] inline-block">📞 راسلنا الآن</span>
   </a>
-
 </section>
->
 
+<!-- Footer -->
+<footer class="bg-[color:var(--brown)] text-white py-6 mt-16 text-center" data-aos="fade-up">
+  <p>© 2025 جميع الحقوق محفوظة لموقع <span class="text-[#F4A261] font-bold">رحلة تالتة ثانوي</span></p>
+</footer>
 
-  <!-- Footer -->
-  <footer class="bg-[#5A3A1B] text-white py-6 mt-16 text-center" data-aos="fade-up">
-    <p>© 2025 جميع الحقوق محفوظة لموقع <span class="text-[#F4A261] font-bold">رحلة تالتة ثانوي</span></p>
-  </footer>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1200, once: true });
-  </script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1200, once: true });
+</script>
 </body>
 </html>
-
-
-
-
