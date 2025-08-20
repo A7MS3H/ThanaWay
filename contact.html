@@ -27,22 +27,26 @@
 </head>
 <body>
 
-  <!-- Navbar -->
-<nav class="bg-[#5A3A1B] text-white p-4 flex justify-between items-center shadow-lg">
-  <div class="flex items-center space-x-2 space-x-reverse">
+<!-- Navbar -->
+<nav class="bg-[#5A3A1B] text-white p-4 flex flex-col sm:flex-row justify-between items-center shadow-lg">
+  <!-- شعار واسم الموقع -->
+  <div class="flex items-center space-x-2 space-x-reverse mb-4 sm:mb-0">
     <img src="images/logo-edu.jpg" alt="شعار" 
          class="w-12 h-12 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 hover:-translate-y-1">
     <h1 class="text-2xl font-bold transition-transform duration-300 hover:scale-110 hover:-translate-y-1">
       رحلة تالتة ثانوي
     </h1>
   </div>
-  <div class="space-x-4 space-x-reverse flex">
-    <a href="index.html" class="nav-link hover:text-[#F4A261]" >الرئيسية</a>
-    <a href="course1.html" class="nav-link hover:text-[#2A9D8F]">نظام التأسيس</a>
-    <a href="course2.html" class="nav-link hover:text-[#F4A261]">المتابعة الذكية</a>
-    <a href="contact.html" class="nav-link hover:text-[#2A9D8F]">تواصل معنا</a>
+
+  <!-- الروابط -->
+  <div class="flex flex-col sm:flex-row w-full sm:w-auto items-center sm:items-start space-y-2 sm:space-y-0 sm:space-x-4">
+    <a href="index.html" class="nav-link px-3 py-2 w-full sm:w-auto text-center sm:text-left hover:text-[#F4A261]">الرئيسية</a>
+    <a href="course1.html" class="nav-link px-3 py-2 w-full sm:w-auto text-center sm:text-left hover:text-[#2A9D8F]">نظام التأسيس</a>
+    <a href="course2.html" class="nav-link px-3 py-2 w-full sm:w-auto text-center sm:text-left hover:text-[#F4A261]">المتابعة الذكية</a>
+    <a href="contact.html" class="nav-link px-3 py-2 w-full sm:w-auto text-center sm:text-left hover:text-[#2A9D8F]">تواصل معنا</a>
   </div>
 </nav>
+
 
   <!-- Hero -->
   <section class="text-center py-20 gradient-bg text-white" data-aos="zoom-in">
@@ -87,3 +91,4 @@
   </script>
 </body>
 </html>
+
