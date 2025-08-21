@@ -71,32 +71,67 @@
     }
   </style>
 </head>
-<!-- Navbar -->
-<nav class="bg-[color:var(--brown)] text-white p-4 flex justify-between items-center shadow-lg flex-wrap">
-  <a href="index.html" class="flex items-center space-x-2 space-x-reverse mb-2 sm:mb-0">
-    <img src="images/logo-edu.jpg" alt="شعار" class="w-12 h-12 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 hover:-translate-y-1">
-    <h1 class="text-xl sm:text-2xl font-bold transition-transform duration-300 hover:scale-110 hover:-translate-y-1">رحلة تالتة ثانوي</h1>
-  </a>
 
-  <button id="menu-btn" class="sm:hidden focus:outline-none">
-    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-    </svg>
-  </button>
+<body class="bg-gray-50">
+<!-- Navbar احترافي -->
+<nav class="fixed w-full z-50 bg-[var(--brown)]/80 backdrop-blur-md shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
 
-  <div id="menu" class="hidden sm:flex flex-col sm:flex-row w-full sm:w-auto mt-2 sm:mt-0 items-center sm:items-center gap-2 sm:gap-4">
-    <a href="index.html" class="w-full sm:w-auto text-center px-3 py-2 rounded-md transition-all duration-300 hover:text-[#F4A261] hover:bg-white/10">الرئيسية</a>
-    <a href="course1.html" class="w-full sm:w-auto text-center px-3 py-2 rounded-md transition-all duration-300 hover:text-[#2A9D8F] hover:bg-white/10">نظام التأسيس</a>
-    <a href="course2.html" class="w-full sm:w-auto text-center px-3 py-2 rounded-md transition-all duration-300 hover:text-[#F4A261] hover:bg-white/10">المتابعة الذكية</a>
-    <a href="contact.html" class="w-full sm:w-auto text-center px-3 py-2 rounded-md transition-all duration-300 hover:text-[#2A9D8F] hover:bg-white/10">تواصل معنا</a>
+      <!-- الشعار -->
+      <a href="index.html" class="flex items-center space-x-3 transition-transform duration-300 hover:scale-105 hover:-translate-y-1">
+        <img src="images/logo-edu.jpg" alt="شعار" class="w-12 h-12 rounded-full shadow-lg">
+        <h1 class="text-xl sm:text-2xl font-extrabold text-white drop-shadow-lg">رحلة تالتة ثانوي</h1>
+      </a>
+
+      <!-- روابط الكمبيوتر -->
+      <div class="hidden sm:flex flex-1 justify-center space-x-10">
+        <a href="index.html" class="text-white font-semibold px-3 py-2 rounded-md hover:text-yellow-400 hover:bg-white/10 transition-all duration-300">الرئيسية</a>
+        <a href="course1.html" class="text-white font-semibold px-3 py-2 rounded-md hover:text-green-400 hover:bg-white/10 transition-all duration-300">نظام التأسيس</a>
+        <a href="course2.html" class="text-white font-semibold px-3 py-2 rounded-md hover:text-orange-400 hover:bg-white/10 transition-all duration-300">المتابعة الذكية</a>
+        <a href="contact.html" class="text-white font-semibold px-3 py-2 rounded-md hover:text-cyan-400 hover:bg-white/10 transition-all duration-300">تواصل معنا</a>
+      </div>
+
+      <!-- زر الموبايل -->
+      <div class="sm:hidden">
+        <button id="mobile-menu-btn" class="focus:outline-none p-2 rounded-md hover:bg-white/10 transition">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- قائمة الموبايل -->
+  <div id="mobile-menu" class="hidden sm:hidden bg-[var(--brown)]/95 backdrop-blur-md px-4 py-4 space-y-3 shadow-lg animate-slide-fade">
+    <a href="index.html" class="block text-white px-3 py-2 rounded-md hover:bg-white/10 transition">الرئيسية</a>
+    <a href="course1.html" class="block text-white px-3 py-2 rounded-md hover:bg-white/10 transition">نظام التأسيس</a>
+    <a href="course2.html" class="block text-white px-3 py-2 rounded-md hover:bg-white/10 transition">المتابعة الذكية</a>
+    <a href="contact.html" class="block text-white px-3 py-2 rounded-md hover:bg-white/10 transition">تواصل معنا</a>
   </div>
 </nav>
 
 <script>
-  const btn = document.getElementById('menu-btn');
-  const menu = document.getElementById('menu');
-  btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+const btn = document.getElementById('mobile-menu-btn');
+const menu = document.getElementById('mobile-menu');
+btn.addEventListener('click', () => { 
+  menu.classList.toggle('hidden'); 
+});
 </script>
+
+<style>
+@keyframes slideFade {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-fade {
+  animation: slideFade 0.4s ease forwards;
+}
+</style>
+
+
 <!-- Hero -->
 <section class="relative text-center py-20 sm:py-24 text-white overflow-hidden animated-gradient" data-aos="zoom-in">
   <h2 class="text-3xl sm:text-6xl font-extrabold mb-4 sm:mb-6 animate-bounce drop-shadow-lg">📚 البداية الصح</h2>
@@ -170,6 +205,5 @@
 </script>
 </body>
 </html>
-
 
 
