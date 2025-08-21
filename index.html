@@ -16,7 +16,13 @@
       --beige: #FCECDC;
     }
 
-    body { font-family: 'Cairo', sans-serif; background: #fdfdfd; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #fdfdfd;
+      overflow-x: hidden; /* يمنع التمرير الأفقي */
+      margin: 0;
+      padding: 0;
+    }
 
     .btn-detail {
       background: var(--cyan);
@@ -67,6 +73,9 @@
       nav div.flex-col { width: 100%; }
       nav a { width: 100%; text-align: center; }
     }
+
+    /* الصور لا تتجاوز عرض العنصر */
+    img { max-width: 100%; height: auto; display: block; }
   </style>
 </head>
 <body class="bg-gray-50">
