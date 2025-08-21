@@ -9,44 +9,54 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root {
-      --brown: #5A3A1B;      /* اللون الأساسي للموقع */
-      --orange: #F4A261;     /* لون أزرار وعناوين */
-      --cyan: #2A9D8F;       /* لون مميز للعناصر الهامة */
-      --beige: #FCECDC;      /* خلفية فاتحة مريحة */
+      --brown: #5A3A1B;
+      --orange: #F4A261;
+      --cyan: #2A9D8F;
+      --beige: #FCECDC;
     }
 
     body {
       font-family: 'Cairo', sans-serif;
       background: var(--beige);
       color: #333;
+      margin: 0;
+      padding: 0;
     }
 
     .gradient-bg {
       background: linear-gradient(135deg, var(--cyan), var(--orange));
     }
 
-    /* Navbar */
     nav a {
       text-decoration: none;
     }
 
-    /* الأزرار */
     .btn {
-      @apply px-6 py-3 rounded-2xl font-bold shadow-lg text-white transition-transform duration-300;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      font-weight: bold;
+      color: #fff;
+      display: inline-block;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
-    .btn:hover { transform: scale(1.05); }
+    .btn:hover {
+      transform: scale(1.05);
+    }
 
-    /* الكروت */
     .card {
-      @apply bg-white rounded-2xl shadow-xl p-6 relative overflow-hidden;
+      background: #fff;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
       border-top-width: 4px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
       transform: scale(1.05);
       box-shadow: 0 12px 25px rgba(0,0,0,0.2);
     }
 
-    /* تحسين تجاوب الـ navbar على الموبايل */
     @media (max-width: 640px) {
       nav div.flex-col { width: 100%; }
       nav a { width: 100%; text-align: center; }
@@ -56,24 +66,72 @@
 <body>
 
 <!-- Navbar -->
-<nav class="bg-[color:var(--brown)] text-white p-4 flex flex-wrap sm:flex-nowrap justify-between items-center shadow-lg">
-  <!-- شعار الموقع -->
-  <a href="index.html" class="flex items-center space-x-2 space-x-reverse mb-2 sm:mb-0">
-    <img src="images/logo-edu.jpg" alt="شعار"
-         class="w-12 h-12 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 hover:-translate-y-1">
-    <h1 class="text-xl sm:text-2xl font-bold transition-transform duration-300 hover:scale-110 hover:-translate-y-1">
-      رحلة تالتة ثانوي
-    </h1>
-  </a>
+<body class="bg-gray-50">
+  <nav class="bg-[#5A3A1B] text-white fixed w-full z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- الشعار + الاسم -->
+        <a href="index.html" class="flex items-center space-x-2">
+          <img src="images/logo-edu.jpg" alt="شعار" class="w-10 h-10 rounded-full shadow-md">
+          <span class="text-xl sm:text-2xl font-bold">رحلة تالتة ثانوي</span>
+        </a>
 
-  <!-- روابط الموقع -->
-  <div class="flex flex-col sm:flex-row w-full sm:w-auto mt-2 sm:mt-0 items-center sm:items-center gap-2 sm:gap-6 justify-center">
-    <a href="index.html" class="w-full sm:w-auto text-center px-4 py-2 rounded-md transition-all duration-300 hover:text-[#F4A261] hover:bg-white/10">الرئيسية</a>
-    <a href="course1.html" class="w-full sm:w-auto text-center px-4 py-2 rounded-md transition-all duration-300 hover:text-[#2A9D8F] hover:bg-white/10">نظام التأسيس</a>
-    <a href="course2.html" class="w-full sm:w-auto text-center px-4 py-2 rounded-md transition-all duration-300 hover:text-[#F4A261] hover:bg-white/10">المتابعة الذكية</a>
-    <a href="contact.html" class="w-full sm:w-auto text-center px-4 py-2 rounded-md transition-all duration-300 hover:text-[#2A9D8F] hover:bg-white/10">تواصل معنا</a>
-  </div>
-</nav>
+        <!-- زر القائمة على الهواتف -->
+        <div class="sm:hidden">
+          <button id="mobile-menu-btn" class="focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- الروابط -->
+        <div id="nav-links" class="hidden sm:flex space-x-6">
+          <a href="index.html" class="hover:text-yellow-400 transition">الرئيسية</a>
+          <a href="course1.html" class="hover:text-green-400 transition">نظام التأسيس</a>
+          <a href="course2.html" class="hover:text-yellow-400 transition">المتابعة الذكية</a>
+          <a href="contact.html" class="hover:text-green-400 transition">تواصل معنا</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- القائمة المنسدلة للهواتف -->
+    <div id="mobile-menu" class="sm:hidden hidden px-4 pb-4 space-y-2 bg-[#5A3A1B]/95">
+      <a href="index.html" class="block text-white px-3 py-2 rounded-md hover:bg-white/10 transition">الرئيسية</a>
+      <a href="course1.html" class="block text-white px-3 py-2 rounded-md hover:bg-white/10 transition">نظام التأسيس</a>
+      <a href="course2.html" class="block text-white px-3 py-2 rounded-md hover:bg-white/10 transition">المتابعة الذكية</a>
+      <a href="contact.html" class="block text-white px-3 py-2 rounded-md hover:bg-white/10 transition">تواصل معنا</a>
+    </div>
+  </nav>
+
+  <script>
+    // Toggle القائمة على الهواتف
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('animate-fade-in');
+    });
+  </script>
+
+  <style>
+    /* تأثير Fade-In */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
+  </style>
+</body>
+
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('menu');
+  btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+</script>
 
 <!-- Hero -->
 <section class="text-center py-20 gradient-bg text-white" data-aos="zoom-in">
@@ -85,25 +143,25 @@
 <section class="container mx-auto py-20 px-6 grid md:grid-cols-2 gap-10">
   <!-- قناة التليجرام -->
   <a href="https://t.me/Thana_Way" target="_blank"
-     class="card text-center shadow-lg hover:shadow-[#2A9D8F]/70 hover:scale-105 hover:animate-pulse transition-all duration-500 group block p-6 rounded-2xl">
+     class="card text-center shadow-lg hover:shadow-[var(--cyan)/70] hover:scale-105 transition-all duration-500 group block p-6 rounded-2xl">
     <div class="text-5xl mb-4 transition-transform duration-500 group-hover:animate-bounce">📢</div>
-    <h3 class="text-2xl font-extrabold mb-2 text-[color:var(--cyan)]">قناة التليجرام</h3>
+    <h3 class="text-2xl font-extrabold mb-2 text-[var(--cyan)]">قناة التليجرام</h3>
     <p class="mb-6 text-gray-600 text-lg">انضم للقناة عشان توصلك كل التحديثات أول بأول 🚀</p>
-    <span class="btn bg-[color:var(--cyan)] hover:bg-[#21867a] inline-block">🔗 انضم الآن</span>
+    <span class="btn bg-[var(--cyan)] hover:bg-[#21867a] inline-block">🔗 انضم الآن</span>
   </a>
 
   <!-- الدعم المباشر -->
   <a href="https://t.me/ThanaWay_team" target="_blank"
-     class="card text-center shadow-lg hover:shadow-[#E76F51]/70 hover:scale-105 hover:animate-pulse transition-all duration-500 group block p-6 rounded-2xl">
+     class="card text-center shadow-lg hover:shadow-[var(--orange)/70] hover:scale-105 transition-all duration-500 group block p-6 rounded-2xl">
     <div class="text-5xl mb-4 transition-transform duration-500 group-hover:animate-bounce">🤝</div>
-    <h3 class="text-2xl font-extrabold mb-2 text-[color:var(--orange)]">الدعم المباشر</h3>
+    <h3 class="text-2xl font-extrabold mb-2 text-[var(--orange)]">الدعم المباشر</h3>
     <p class="mb-6 text-gray-600 text-lg">لو محتاج مساعدة أو عندك استفسار 📝 راسلنا في أي وقت</p>
-    <span class="btn bg-[color:var(--orange)] hover:bg-[#d65b3e] inline-block">📞 راسلنا الآن</span>
+    <span class="btn bg-[var(--orange)] hover:bg-[#d65b3e] inline-block">📞 راسلنا الآن</span>
   </a>
 </section>
 
 <!-- Footer -->
-<footer class="bg-[color:var(--brown)] text-white py-6 mt-16 text-center px-4" data-aos="fade-up">
+<footer class="bg-[var(--brown)] text-white py-6 mt-16 text-center px-4" data-aos="fade-up">
   <p>© 2025 جميع الحقوق محفوظة لموقع رحلة تالتة ثانوي</p>
   <p class="mt-2">
     تصميم وتطوير: 
@@ -119,5 +177,3 @@
 </script>
 </body>
 </html>
-
-
