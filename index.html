@@ -16,14 +16,43 @@
       --beige: #FCECDC;
     }
 
-    body {
+    html, body {
       font-family: 'Cairo', sans-serif;
-      background: #fdfdfd;
-      overflow-x: hidden;
       margin: 0;
       padding: 0;
+      overflow-x: hidden; /* يمنع التمرير الأفقي */
+      background: #fdfdfd;
     }
 
+    /* روابط الكمبيوتر */
+    .nav-link {
+      color: white;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    .nav-link:hover {
+      background: white/10;
+      background: linear-gradient(90deg, #F4A261, #2A9D8F, #F4A261);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* روابط الموبايل */
+    .mobile-link {
+      color: white;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      display: block;
+      transition: all 0.3s ease;
+    }
+    .mobile-link:hover {
+      background: white/10;
+    }
+
+    /* Buttons */
     .btn-detail {
       background: var(--cyan);
       color: white;
@@ -54,11 +83,6 @@
 
     img { max-width: 100%; height: auto; display: block; }
 
-    @media (max-width: 640px) {
-      nav div.flex-col { width: 100%; }
-      nav a { width: 100%; text-align: center; }
-    }
-
     /* Fade-in effect */
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(-10px); }
@@ -66,16 +90,26 @@
     }
     .animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
 
+    /* Animation للقائمة */
+    @keyframes slideFade {
+      0% { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-slide-fade {
+      animation: slideFade 0.4s ease forwards;
+    }
+
   </style>
 </head>
 
-<body class="bg-gray-50">
-<!-- Navbar احترافي متكامل -->
-<nav class="fixed w-full z-50 bg-[var(--brown)]/80 backdrop-blur-md shadow-lg">
+<body>
+
+<!-- Navbar -->
+<nav class="fixed w-full z-50 bg-[var(--brown)]/90 backdrop-blur-md shadow-lg">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
 
-      <!-- الشعار -->
+      <!-- شعار + اسم -->
       <a href="index.html" class="flex items-center space-x-3 transition-transform duration-300 hover:scale-105 hover:-translate-y-1">
         <img src="images/logo-edu.jpg" alt="شعار" class="w-12 h-12 rounded-full shadow-lg">
         <h1 class="text-xl sm:text-2xl font-extrabold text-white drop-shadow-lg">رحلة تالتة ثانوي</h1>
@@ -126,107 +160,62 @@ links.forEach(link => {
 });
 </script>
 
-<style>
-:root {
-  --brown: #5A3A1B;
-}
+<!-- Hero Section -->
+<section class="text-center py-20 sm:py-24 bg-[color:var(--brown)] text-white relative overflow-hidden">
+  <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6 relative z-10" 
+      data-aos="zoom-in" data-aos-duration="1400">
+    ابدأ رحلتك للنجاح معانا 🚀
+  </h2>
+  <p class="mb-6 sm:mb-10 text-base sm:text-lg md:text-xl relative z-10" 
+     data-aos="fade-up" data-aos-delay="400">
+    أفضل أنظمة تأسيس ومتابعة ذكية لطلاب الثانوية العامة
+  </p>
+</section>
 
-/* روابط الكمبيوتر */
-.nav-link {
-  color: white;
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
-}
-.nav-link:hover {
-  background: white/10;
-  background: linear-gradient(90deg, #F4A261, #2A9D8F, #F4A261);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* روابط الموبايل */
-.mobile-link {
-  color: white;
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  display: block;
-  transition: all 0.3s ease;
-}
-.mobile-link:hover {
-  background: white/10;
-}
-
-/* Animation للقائمة */
-@keyframes slideFade {
-  0% { opacity: 0; transform: translateY(-10px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-.animate-slide-fade {
-  animation: slideFade 0.4s ease forwards;
-}
-</style>
-
-
-  <!-- Hero Section -->
-  <section class="text-center py-20 sm:py-24 bg-[color:var(--brown)] text-white relative overflow-hidden">
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6 relative z-10" 
-        data-aos="zoom-in" data-aos-duration="1400">
-      ابدأ رحلتك للنجاح معانا 🚀
-    </h2>
-    <p class="mb-6 sm:mb-10 text-base sm:text-lg md:text-xl relative z-10" 
-       data-aos="fade-up" data-aos-delay="400">
-      أفضل أنظمة تأسيس ومتابعة ذكية لطلاب الثانوية العامة
-    </p>
-  </section>
-
-  <!-- Courses Section -->
-  <section class="container mx-auto py-12 px-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6">
-    <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition" data-aos="fade-right">
-      <div class="p-5 sm:p-6">
-        <h3 class="text-xl sm:text-2xl font-bold text-[color:var(--brown)] mb-3 sm:mb-4">🎓 المتابعة الذكية</h3>
-        <p class="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base">
-          ذاكر أول بأول بخطة منظمة + متابعة شخصية وجروب أسئلة أسبوعيًا عشان تضمن تقدمك.
-        </p>
-        <a href="course2.html" class="btn-detail text-sm sm:text-base">اعرف التفاصيل</a>
-      </div>
+<!-- Courses Section -->
+<section class="container mx-auto py-12 px-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition" data-aos="fade-right">
+    <div class="p-5 sm:p-6">
+      <h3 class="text-xl sm:text-2xl font-bold text-[color:var(--brown)] mb-3 sm:mb-4">🎓 المتابعة الذكية</h3>
+      <p class="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base">
+        ذاكر أول بأول بخطة منظمة + متابعة شخصية وجروب أسئلة أسبوعيًا عشان تضمن تقدمك.
+      </p>
+      <a href="course2.html" class="btn-detail text-sm sm:text-base">اعرف التفاصيل</a>
     </div>
+  </div>
 
-    <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition" data-aos="fade-left">
-      <div class="p-5 sm:p-6">
-        <h3 class="text-xl sm:text-2xl font-bold text-[color:var(--brown)] mb-3 sm:mb-4">📚 نظام التأسيس</h3>
-        <p class="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base">
-          ابدأ من الأساس بخطة 11 يوم تأسيسية مع تدريبات واختبارات يومية تساعدك تبني قاعدة قوية.
-        </p>
-        <a href="course1.html" class="btn-detail text-sm sm:text-base">اعرف التفاصيل</a>
-      </div>
+  <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition" data-aos="fade-left">
+    <div class="p-5 sm:p-6">
+      <h3 class="text-xl sm:text-2xl font-bold text-[color:var(--brown)] mb-3 sm:mb-4">📚 نظام التأسيس</h3>
+      <p class="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base">
+        ابدأ من الأساس بخطة 11 يوم تأسيسية مع تدريبات واختبارات يومية تساعدك تبني قاعدة قوية.
+      </p>
+      <a href="course1.html" class="btn-detail text-sm sm:text-base">اعرف التفاصيل</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Social Buttons -->
-  <section class="text-center py-8" data-aos="zoom-in">
-    <a href="https://t.me/Thana_Way" target="_blank" class="social-btn telegram">📢 قناة رحلة تالتة ثانوي</a>
-    <a href="https://t.me/ThanaWay_bot" target="_blank" class="social-btn bot">🤖 بوت رحلة تالتة ثانوي</a>
-  </section>
+<!-- Social Buttons -->
+<section class="text-center py-8" data-aos="zoom-in">
+  <a href="https://t.me/Thana_Way" target="_blank" class="social-btn telegram">📢 قناة رحلة تالتة ثانوي</a>
+  <a href="https://t.me/ThanaWay_bot" target="_blank" class="social-btn bot">🤖 بوت رحلة تالتة ثانوي</a>
+</section>
 
-  <!-- Footer -->
-  <footer class="bg-[color:var(--brown)] text-white py-6 mt-16 text-center px-4" data-aos="fade-up">
-    <p>© 2025 جميع الحقوق محفوظة لموقع رحلة تالتة ثانوي</p>
-    <p class="mt-2">
-      تصميم وتطوير: 
-      <a href="https://t.me/A7MEDS3L3H" target="_blank" class="font-bold" style="color:#1DA1F2;">
-        AHMED SALAH
-      </a>
-    </p>
-  </footer>
+<!-- Footer -->
+<footer class="bg-[color:var(--brown)] text-white py-6 mt-16 text-center px-4" data-aos="fade-up">
+  <p>© 2025 جميع الحقوق محفوظة لموقع رحلة تالتة ثانوي</p>
+  <p class="mt-2">
+    تصميم وتطوير: 
+    <a href="https://t.me/A7MEDS3L3H" target="_blank" class="font-bold" style="color:#1DA1F2;">
+      AHMED SALAH
+    </a>
+  </p>
+</footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1200, once: true });
-  </script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1200, once: true });
+</script>
 
 </body>
 </html>
- 
