@@ -18,26 +18,6 @@
 
     body { font-family: 'Cairo', sans-serif; background: #fdfdfd; }
 
-    .btn {
-      @apply px-6 py-3 rounded-2xl text-white font-bold shadow-lg hover:scale-105 transition-transform;
-    }
-
-    /* دوائر متحركة */
-    .circle {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      animation: float 8s infinite ease-in-out;
-    }
-    .circle:nth-child(1) { width: 120px; height: 120px; top: 10%; left: 15%; animation-delay: 0s; }
-    .circle:nth-child(2) { width: 80px; height: 80px; top: 40%; left: 70%; animation-delay: 2s; }
-    .circle:nth-child(3) { width: 150px; height: 150px; top: 70%; left: 30%; animation-delay: 4s; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
     .btn-detail {
       background: var(--cyan);
       color: white;
@@ -66,7 +46,23 @@
     .social-btn.bot { background: var(--cyan); box-shadow: 0 0 15px rgba(42, 157, 143, 0.5); }
     .social-btn:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 0 25px rgba(0,0,0,0.2); }
 
-    /* تحسين تجاوب الـ navbar على الموبايل */
+    /* دوائر متحركة في الـ Hero */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      animation: float 8s infinite ease-in-out;
+    }
+    .circle:nth-child(1) { width: 120px; height: 120px; top: 10%; left: 15%; animation-delay: 0s; }
+    .circle:nth-child(2) { width: 80px; height: 80px; top: 40%; left: 70%; animation-delay: 2s; }
+    .circle:nth-child(3) { width: 150px; height: 150px; top: 70%; left: 30%; animation-delay: 4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* تحسين تجاوب الروابط على الموبايل */
     @media (max-width: 640px) {
       nav div.flex-col { width: 100%; }
       nav a { width: 100%; text-align: center; }
@@ -74,6 +70,7 @@
   </style>
 </head>
 <body class="bg-gray-50">
+
 <!-- Navbar -->
 <nav class="bg-[color:var(--brown)] text-white p-4 flex flex-wrap sm:flex-nowrap justify-between items-center shadow-lg">
   <!-- شعار الموقع -->
@@ -86,7 +83,7 @@
   </a>
 
   <!-- روابط الموقع -->
-  <div class="flex flex-col sm:flex-row w-full sm:w-auto mt-2 sm:mt-0 items-center sm:items-center gap-2 sm:gap-6 justify-center">
+  <div class="flex flex-col sm:flex-row w-full sm:w-auto mt-2 sm:mt-0 items-center sm:items-center gap-2 sm:gap-6 sm:ml-auto justify-center">
     <a href="index.html" class="w-full sm:w-auto text-center px-4 py-2 rounded-md transition-all duration-300 hover:text-[#F4A261] hover:bg-white/10">الرئيسية</a>
     <a href="course1.html" class="w-full sm:w-auto text-center px-4 py-2 rounded-md transition-all duration-300 hover:text-[#2A9D8F] hover:bg-white/10">نظام التأسيس</a>
     <a href="course2.html" class="w-full sm:w-auto text-center px-4 py-2 rounded-md transition-all duration-300 hover:text-[#F4A261] hover:bg-white/10">المتابعة الذكية</a>
@@ -94,8 +91,7 @@
   </div>
 </nav>
 
-
-<!-- Hero -->
+<!-- Hero Section -->
 <section class="text-center py-20 sm:py-24 bg-[color:var(--brown)] text-white relative overflow-hidden">
   <div class="circle hidden sm:block"></div>
   <div class="circle hidden sm:block"></div>
@@ -114,7 +110,6 @@
 
 <!-- Courses Section -->
 <section class="container mx-auto py-12 px-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6">
-  
   <!-- كورس المتابعة -->
   <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition" data-aos="fade-right">
     <div class="p-5 sm:p-6">
@@ -136,9 +131,7 @@
       <a href="course1.html" class="btn-detail text-sm sm:text-base">اعرف التفاصيل</a>
     </div>
   </div>
-
 </section>
-
 
 <!-- Social Buttons -->
 <section class="text-center py-8" data-aos="zoom-in">
@@ -161,7 +154,6 @@
 <script>
   AOS.init({ duration: 1200, once: true });
 </script>
+
 </body>
 </html>
-
-
