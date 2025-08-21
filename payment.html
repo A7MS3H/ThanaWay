@@ -15,35 +15,21 @@
       --red: #E63946;
     }
 
-    body { font-family: 'Cairo', sans-serif; background: #FFF9F4; }
-
-    /* أزرار */
-    .btn { @apply px-6 py-3 rounded-2xl text-white font-bold shadow-lg; }
-
-    @keyframes pulseButton {
-      0% { transform: scale(1) rotate(0deg); box-shadow: 0 0 5px var(--orange); }
-      25% { transform: scale(1.03) rotate(-0.5deg); box-shadow: 0 0 10px var(--red); }
-      50% { transform: scale(1.06) rotate(0.5deg); box-shadow: 0 0 12px #ff7b5c; }
-      75% { transform: scale(1.03) rotate(-0.5deg); box-shadow: 0 0 10px var(--red); }
-      100% { transform: scale(1) rotate(0deg); box-shadow: 0 0 5px var(--orange); }
-    }
-    .animate-pulse-button {
-      animation: pulseButton 1.6s infinite ease-in-out;
-      border: 3px solid #fff;
-      border-radius: 1rem;
-      padding: 0.75rem 2rem;
-      text-decoration: none;
-      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-      opacity: 0.8;
-    }
-    .btn:hover {
-      transform: scale(1.15) rotate(-1deg);
-      opacity: 1;
-      box-shadow: 0 0 25px #ff7b5c;
+    body { 
+      font-family: 'Cairo', sans-serif; 
+      background: #FFF9F4; 
+      margin:0;
+      padding:0;
     }
 
-    /* البطاقات */
-    .card { @apply bg-white rounded-2xl shadow-xl p-6 transition-transform duration-500; }
+    .card {
+      @apply bg-white rounded-2xl shadow-xl p-6 transition-transform duration-500;
+      animation: floatCard 3s infinite ease-in-out;
+    }
+    .card:hover {
+      transform: translateY(-12px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
 
     @keyframes floatCard {
       0% { transform: translateY(0px) rotate(0deg); }
@@ -52,8 +38,30 @@
       75% { transform: translateY(-4px) rotate(-0.5deg); }
       100% { transform: translateY(0px) rotate(0deg); }
     }
-    .card { animation: floatCard 3s infinite ease-in-out; }
-    .card:hover { transform: translateY(-12px) scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.2); transition: transform 0.5s ease-in-out; }
+
+    .pulse-button {
+      @apply fixed bottom-6 right-6 z-50 px-6 py-4 text-2xl font-extrabold rounded-3xl text-white shadow-lg;
+      background: linear-gradient(90deg, #E63946, #F4A261, #2A9D8F);
+      background-size: 300% 300%;
+      animation: pulseGradient 3s ease infinite, bounce 1s infinite;
+      box-shadow: 0 0 15px rgba(231,111,81,0.6), 0 0 25px rgba(231,111,81,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .pulse-button:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 25px rgba(231,111,81,0.8), 0 0 40px rgba(231,111,81,0.5);
+    }
+
+    @keyframes pulseGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
   </style>
 </head>
 <body>
@@ -61,7 +69,7 @@
 <!-- Hero Section -->
 <section class="bg-gradient-to-r from-[var(--brown)] to-[var(--green)] text-white text-center py-20" data-aos="zoom-in">
   <h1 class="text-5xl font-extrabold mb-6 animate-bounce">💳 سجل وابدأ رحلتك</h1>
-  <p class="text-lg max-w-2xl mx-auto">بخطوات بسيطة، اختار وسيلة الدفع، ابعتلنا البيانات، وابدأ نظام المتابعة الذكية فورًا 🚀</p>
+  <p class="text-lg max-w-2xl mx-auto">اختار وسيلة الدفع، ابعتلنا البيانات، وابدأ نظام المتابعة الذكية فورًا 🚀</p>
 </section>
 
 <!-- Steps Section -->
@@ -83,7 +91,7 @@
 <!-- Warning -->
 <div class="container mx-auto text-center my-10 p-6 bg-[#FFF0E6] rounded-2xl shadow-lg" data-aos="flip-up">
   <h3 class="text-xl font-bold text-[var(--red)] mb-3">📌 تنبيه مهم</h3>
-  <p>بمجرد تأكيد الدفع وبدء التفعيل، لا يُسمح باسترجاع المبلغ المدفوع؛ لأن المتابعة والتجهيزات بتبدأ فورًا بمجرد الاشتراك.</p>
+  <p>بمجرد تأكيد الدفع وبدء التفعيل، لا يُسمح باسترجاع المبلغ؛ لأن المتابعة والتجهيزات تبدأ فورًا.</p>
 </div>
 
 <!-- Features -->
@@ -112,11 +120,41 @@
   <div id="countdown" class="text-3xl font-extrabold text-[var(--orange)]"></div>
 </div>
 
-<!-- CTA ثابت طوال الوقت -->
+<!-- CTA ثابت لجميع الأجهزة -->
 <a href="https://t.me/ThanaWay_team" target="_blank" 
-   class="btn animate-pulse-button fixed bottom-6 right-6 z-50 bg-gradient-to-r from-[var(--red)] to-[var(--orange)] text-2xl font-extrabold shadow-lg">
+   class="pulse-button fixed bottom-6 right-6 z-50 text-xl sm:text-2xl font-extrabold rounded-3xl px-4 sm:px-6 py-3 sm:py-4 shadow-lg">
    📩 أرسل إيصال الدفع
 </a>
+
+<style>
+.pulse-button {
+  background: linear-gradient(90deg, #E63946, #F4A261, #2A9D8F);
+  background-size: 300% 300%;
+  animation: pulseGradient 3s ease infinite, bounce 1s infinite;
+  box-shadow: 0 0 10px rgba(231,111,81,0.4), 0 0 20px rgba(231,111,81,0.2);
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  opacity: 0.85; /* الشفافية */
+}
+.pulse-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(231,111,81,0.6), 0 0 35px rgba(231,111,81,0.4);
+  opacity: 1; /* عند المرور تصبح أوضح */
+}
+
+@keyframes pulseGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+</style>
+
+
 
 <!-- Footer -->
 <footer class="bg-[var(--brown)] text-white py-6 mt-16 text-center px-4" data-aos="fade-up">
@@ -160,4 +198,3 @@
 
 </body>
 </html>
-
