@@ -19,7 +19,7 @@
     body {
       font-family: 'Cairo', sans-serif;
       background: #fdfdfd;
-      overflow-x: hidden; /* يمنع التمرير الأفقي */
+      overflow-x: hidden;
       margin: 0;
       padding: 0;
     }
@@ -52,38 +52,28 @@
     .social-btn.bot { background: var(--cyan); box-shadow: 0 0 15px rgba(42, 157, 143, 0.5); }
     .social-btn:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 0 25px rgba(0,0,0,0.2); }
 
-    /* دوائر متحركة في الـ Hero */
-    .circle {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      animation: float 8s infinite ease-in-out;
-    }
-    .circle:nth-child(1) { width: 120px; height: 120px; top: 10%; left: 15%; animation-delay: 0s; }
-    .circle:nth-child(2) { width: 80px; height: 80px; top: 40%; left: 70%; animation-delay: 2s; }
-    .circle:nth-child(3) { width: 150px; height: 150px; top: 70%; left: 30%; animation-delay: 4s; }
+    img { max-width: 100%; height: auto; display: block; }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    /* تحسين تجاوب الروابط على الموبايل */
     @media (max-width: 640px) {
       nav div.flex-col { width: 100%; }
       nav a { width: 100%; text-align: center; }
     }
 
-    /* الصور لا تتجاوز عرض العنصر */
-    img { max-width: 100%; height: auto; display: block; }
+    /* Fade-in effect */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
+
   </style>
 </head>
-<!-- Navbar -->
+
 <body class="bg-gray-50">
+  <!-- Navbar -->
   <nav class="bg-[#5A3A1B] text-white fixed w-full z-50 shadow-lg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        
         <!-- الشعار + الاسم -->
         <a href="index.html" class="flex items-center space-x-2">
           <img src="images/logo-edu.jpg" alt="شعار" class="w-10 h-10 rounded-full shadow-md">
@@ -99,7 +89,7 @@
           </button>
         </div>
 
-        <!-- الروابط -->
+        <!-- الروابط على الشاشات الكبيرة -->
         <div id="nav-links" class="hidden sm:flex space-x-6">
           <a href="index.html" class="hover:text-yellow-400 transition">الرئيسية</a>
           <a href="course1.html" class="hover:text-green-400 transition">نظام التأسيس</a>
@@ -129,88 +119,62 @@
     });
   </script>
 
-  <style>
-    /* تأثير Fade-In */
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-10px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
-  </style>
-</body>
+  <!-- Hero Section -->
+  <section class="text-center py-20 sm:py-24 bg-[color:var(--brown)] text-white relative overflow-hidden">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6 relative z-10" 
+        data-aos="zoom-in" data-aos-duration="1400">
+      ابدأ رحلتك للنجاح معانا 🚀
+    </h2>
+    <p class="mb-6 sm:mb-10 text-base sm:text-lg md:text-xl relative z-10" 
+       data-aos="fade-up" data-aos-delay="400">
+      أفضل أنظمة تأسيس ومتابعة ذكية لطلاب الثانوية العامة
+    </p>
+  </section>
 
-
-<script>
-  const btn = document.getElementById('menu-btn');
-  const menu = document.getElementById('menu');
-  btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
-</script>
-
-
-
-<!-- Hero Section -->
-<section class="text-center py-20 sm:py-24 bg-[color:var(--brown)] text-white relative overflow-hidden">
-  <div class="circle hidden sm:block"></div>
-  <div class="circle hidden sm:block"></div>
-  <div class="circle hidden sm:block"></div>
-
-  <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6 relative z-10" 
-      data-aos="zoom-in" data-aos-duration="1400">
-    ابدأ رحلتك للنجاح معانا 🚀
-  </h2>
-
-  <p class="mb-6 sm:mb-10 text-base sm:text-lg md:text-xl relative z-10" 
-     data-aos="fade-up" data-aos-delay="400">
-    أفضل أنظمة تأسيس ومتابعة ذكية لطلاب الثانوية العامة
-  </p>
-</section>
-
-<!-- Courses Section -->
-<section class="container mx-auto py-12 px-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6">
-  <!-- كورس المتابعة -->
-  <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition" data-aos="fade-right">
-    <div class="p-5 sm:p-6">
-      <h3 class="text-xl sm:text-2xl font-bold text-[color:var(--brown)] mb-3 sm:mb-4">🎓 المتابعة الذكية</h3>
-      <p class="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base">
-        ذاكر أول بأول بخطة منظمة + متابعة شخصية وجروب أسئلة أسبوعيًا عشان تضمن تقدمك.
-      </p>
-      <a href="course2.html" class="btn-detail text-sm sm:text-base">اعرف التفاصيل</a>
+  <!-- Courses Section -->
+  <section class="container mx-auto py-12 px-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition" data-aos="fade-right">
+      <div class="p-5 sm:p-6">
+        <h3 class="text-xl sm:text-2xl font-bold text-[color:var(--brown)] mb-3 sm:mb-4">🎓 المتابعة الذكية</h3>
+        <p class="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base">
+          ذاكر أول بأول بخطة منظمة + متابعة شخصية وجروب أسئلة أسبوعيًا عشان تضمن تقدمك.
+        </p>
+        <a href="course2.html" class="btn-detail text-sm sm:text-base">اعرف التفاصيل</a>
+      </div>
     </div>
-  </div>
 
-  <!-- كورس التأسيس -->
-  <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition" data-aos="fade-left">
-    <div class="p-5 sm:p-6">
-      <h3 class="text-xl sm:text-2xl font-bold text-[color:var(--brown)] mb-3 sm:mb-4">📚 نظام التأسيس</h3>
-      <p class="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base">
-        ابدأ من الأساس بخطة 11 يوم تأسيسية مع تدريبات واختبارات يومية تساعدك تبني قاعدة قوية.
-      </p>
-      <a href="course1.html" class="btn-detail text-sm sm:text-base">اعرف التفاصيل</a>
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition" data-aos="fade-left">
+      <div class="p-5 sm:p-6">
+        <h3 class="text-xl sm:text-2xl font-bold text-[color:var(--brown)] mb-3 sm:mb-4">📚 نظام التأسيس</h3>
+        <p class="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base">
+          ابدأ من الأساس بخطة 11 يوم تأسيسية مع تدريبات واختبارات يومية تساعدك تبني قاعدة قوية.
+        </p>
+        <a href="course1.html" class="btn-detail text-sm sm:text-base">اعرف التفاصيل</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Social Buttons -->
-<section class="text-center py-8" data-aos="zoom-in">
-  <a href="https://t.me/Thana_Way" target="_blank" class="social-btn telegram">📢 قناة رحلة تالتة ثانوي</a>
-  <a href="https://t.me/ThanaWay_bot" target="_blank" class="social-btn bot">🤖 بوت رحلة تالتة ثانوي</a>
-</section>
+  <!-- Social Buttons -->
+  <section class="text-center py-8" data-aos="zoom-in">
+    <a href="https://t.me/Thana_Way" target="_blank" class="social-btn telegram">📢 قناة رحلة تالتة ثانوي</a>
+    <a href="https://t.me/ThanaWay_bot" target="_blank" class="social-btn bot">🤖 بوت رحلة تالتة ثانوي</a>
+  </section>
 
-<!-- Footer -->
-<footer class="bg-[color:var(--brown)] text-white py-6 mt-16 text-center px-4" data-aos="fade-up">
-  <p>© 2025 جميع الحقوق محفوظة لموقع رحلة تالتة ثانوي</p>
-  <p class="mt-2">
-    تصميم وتطوير: 
-    <a href="https://t.me/A7MEDS3L3H" target="_blank" class="font-bold" style="color:#1DA1F2;">
-      AHMED SALAH
-    </a>
-  </p>
-</footer>
+  <!-- Footer -->
+  <footer class="bg-[color:var(--brown)] text-white py-6 mt-16 text-center px-4" data-aos="fade-up">
+    <p>© 2025 جميع الحقوق محفوظة لموقع رحلة تالتة ثانوي</p>
+    <p class="mt-2">
+      تصميم وتطوير: 
+      <a href="https://t.me/A7MEDS3L3H" target="_blank" class="font-bold" style="color:#1DA1F2;">
+        AHMED SALAH
+      </a>
+    </p>
+  </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({ duration: 1200, once: true });
-</script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200, once: true });
+  </script>
 
 </body>
 </html>
