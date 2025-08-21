@@ -70,54 +70,105 @@
 </head>
 
 <body class="bg-gray-50">
-<!-- Navbar -->
-  <nav class="bg-[#5A3A1B] text-white fixed w-full z-50 shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <!-- الشعار + الاسم -->
-        <a href="index.html" class="flex items-center space-x-2">
-          <img src="images/logo-edu.jpg" alt="شعار" class="w-10 h-10 rounded-full shadow-md">
-          <span class="text-xl sm:text-2xl font-bold">رحلة تالتة ثانوي</span>
-        </a>
+<!-- Navbar احترافي متكامل -->
+<nav class="fixed w-full z-50 bg-[var(--brown)]/80 backdrop-blur-md shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
 
-        <!-- زر القائمة على الهواتف -->
-        <div class="sm:hidden">
-          <button id="mobile-menu-btn" class="focus:outline-none">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-          </button>
-        </div>
+      <!-- الشعار -->
+      <a href="index.html" class="flex items-center space-x-3 transition-transform duration-300 hover:scale-105 hover:-translate-y-1">
+        <img src="images/logo-edu.jpg" alt="شعار" class="w-12 h-12 rounded-full shadow-lg">
+        <h1 class="text-xl sm:text-2xl font-extrabold text-white drop-shadow-lg">رحلة تالتة ثانوي</h1>
+      </a>
 
-        <!-- الروابط على الشاشات الكبيرة -->
-        <div id="nav-links" class="hidden sm:flex space-x-reverse space-x-10">
-          <a href="index.html" class="hover:text-yellow-400 transition">الرئيسية</a>
-          <a href="course1.html" class="hover:text-green-400 transition">نظام التأسيس</a>
-          <a href="course2.html" class="hover:text-yellow-400 transition">المتابعة الذكية</a>
-          <a href="contact.html" class="hover:text-green-400 transition">تواصل معنا</a>
-        </div>
+      <!-- روابط الكمبيوتر -->
+      <div class="hidden sm:flex flex-1 justify-center space-x-10">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="course1.html" class="nav-link">نظام التأسيس</a>
+        <a href="course2.html" class="nav-link">المتابعة الذكية</a>
+        <a href="contact.html" class="nav-link">تواصل معنا</a>
       </div>
+
+      <!-- زر الموبايل -->
+      <div class="sm:hidden">
+        <button id="mobile-menu-btn" class="focus:outline-none p-2 rounded-md hover:bg-white/10 transition">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
     </div>
+  </div>
 
-    <!-- القائمة المنسدلة للهواتف -->
-    <div id="mobile-menu" class="sm:hidden hidden px-4 pb-4 space-y-2 bg-[#5A3A1B]/95">
-      <a href="index.html" class="block text-white px-3 py-2 rounded-md hover:bg-white/10 transition">الرئيسية</a>
-      <a href="course1.html" class="block text-white px-3 py-2 rounded-md hover:bg-white/10 transition">نظام التأسيس</a>
-      <a href="course2.html" class="block text-white px-3 py-2 rounded-md hover:bg-white/10 transition">المتابعة الذكية</a>
-      <a href="contact.html" class="block text-white px-3 py-2 rounded-md hover:bg-white/10 transition">تواصل معنا</a>
-    </div>
-  </nav>
+  <!-- قائمة الموبايل -->
+  <div id="mobile-menu" class="hidden sm:hidden bg-[var(--brown)]/95 backdrop-blur-md px-4 py-4 space-y-3 shadow-lg animate-slide-fade">
+    <a href="index.html" class="mobile-link">الرئيسية</a>
+    <a href="course1.html" class="mobile-link">نظام التأسيس</a>
+    <a href="course2.html" class="mobile-link">المتابعة الذكية</a>
+    <a href="contact.html" class="mobile-link">تواصل معنا</a>
+  </div>
+</nav>
 
-  <script>
-    // Toggle القائمة على الهواتف
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
+<script>
+const btn = document.getElementById('mobile-menu-btn');
+const menu = document.getElementById('mobile-menu');
+btn.addEventListener('click', () => { 
+  menu.classList.toggle('hidden'); 
+});
 
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      mobileMenu.classList.toggle('animate-fade-in');
-    });
-  </script>
+// Highlight الصفحة الحالية
+const links = document.querySelectorAll('.nav-link, .mobile-link');
+links.forEach(link => {
+  if (link.href === window.location.href) {
+    link.classList.add('text-yellow-400', 'font-bold');
+  }
+});
+</script>
+
+<style>
+:root {
+  --brown: #5A3A1B;
+}
+
+/* روابط الكمبيوتر */
+.nav-link {
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+.nav-link:hover {
+  background: white/10;
+  background: linear-gradient(90deg, #F4A261, #2A9D8F, #F4A261);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* روابط الموبايل */
+.mobile-link {
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: block;
+  transition: all 0.3s ease;
+}
+.mobile-link:hover {
+  background: white/10;
+}
+
+/* Animation للقائمة */
+@keyframes slideFade {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-fade {
+  animation: slideFade 0.4s ease forwards;
+}
+</style>
+
 
   <!-- Hero Section -->
   <section class="text-center py-20 sm:py-24 bg-[color:var(--brown)] text-white relative overflow-hidden">
