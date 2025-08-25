@@ -17,7 +17,7 @@
       background-color: var(--bg-page);
       margin: 0;
       padding: 0;
-      overflow-x: hidden; /* منع تحريك الصفحة يمين/يسار */
+      overflow-x: hidden;
     }
 
     /* Navbar */
@@ -53,8 +53,11 @@
       line-height: 1.6; 
     }
     .faq-item.active .faq-answer { 
-      max-height: 500px; 
+      max-height: 1000px; 
       padding-top: 0.5rem; 
+    }
+    .faq-item.active .faq-icon { 
+      transform: rotate(45deg); 
     }
 
     /* FAQ Header */
@@ -70,98 +73,160 @@
 <nav class="fixed w-full left-0 z-50 bg-[var(--brown)] shadow-lg">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-
-      <!-- شعار -->
       <a href="index.html" class="flex items-center space-x-3 transition-transform duration-300 hover:scale-105 hover:-translate-y-1">
         <img src="images/logo-edu.jpg" alt="شعار رحلة تالتة ثانوي" class="w-12 h-12 rounded-full shadow-lg">
         <h1 class="text-xl sm:text-2xl font-extrabold text-white drop-shadow-lg">رحلة تالتة ثانوي</h1>
       </a>
 
-      <!-- روابط الكمبيوتر -->
       <div class="hidden sm:flex flex-1 justify-center space-x-10">
         <a href="index.html" class="nav-link">الرئيسية</a>
         <a href="course1.html" class="nav-link">نظام التأسيس</a>
         <a href="course2.html" class="nav-link">المتابعة الذكية</a>
-        <a href="faq.html" class="nav-link">الأسئلة الشائعة</a>
+        <a href="faq.html" class="nav-link active">الأسئلة الشائعة</a>
         <a href="about.html" class="nav-link">عن الرحلة</a>
       </div>
 
-      <!-- زر الموبايل -->
       <div class="sm:hidden relative z-50">
         <button id="mobile-menu-btn" aria-label="فتح القائمة" class="focus:outline-none p-2 rounded-md hover:bg-white/10 transition text-white text-2xl">
           <span id="menu-icon">☰</span>
           <span id="close-icon" class="hidden">✖</span>
         </button>
       </div>
-
     </div>
   </div>
 </nav>
 
-<!-- Overlay -->
 <div id="overlay" class="fixed inset-0 bg-black/40 hidden z-40"></div>
 
-<!-- قائمة الموبايل -->
 <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-[var(--brown)] p-6 space-y-4 shadow-lg transform translate-x-full transition-transform duration-300 z-50">
   <a href="index.html" class="mobile-link">الرئيسية</a>
   <a href="course1.html" class="mobile-link">نظام التأسيس</a>
   <a href="course2.html" class="mobile-link">المتابعة الذكية</a>
-  <a href="faq.html" class="mobile-link">الأسئلة الشائعة</a>
+  <a href="faq.html" class="mobile-link active">الأسئلة الشائعة</a>
   <a href="about.html" class="mobile-link">عن الرحلة</a>
 </div>
 
 <!-- FAQ Section -->
 <main class="max-w-4xl mx-auto py-20 px-4">
-  <h2 class="text-3xl font-bold text-center mb-10 faq-header">الأسئلة الشائعة</h2>
+  <h2 class="text-3xl font-bold text-center mb-12 faq-header">الأسئلة الشائعة</h2>
 
-  <div class="space-y-6">
-    <div class="faq-item bg-white p-5 rounded-2xl shadow">
-      <button><span>هل في نظام تأسيس؟</span><span>+</span></button>
-      <div class="faq-answer">أيوه، نظام التأسيس مدته 11 يوم لطلاب علمي علوم فقط، بيخليك تبدأ من الأساس بشرح مبسط + تدريب + اختبار يومي.</div>
+  <div class="space-y-5">
+    <div class="faq-item bg-white p-6 rounded-2xl shadow-md transition-all duration-300">
+      <button class="flex justify-between items-center w-full text-right text-lg font-semibold">
+        <span>هل في نظام تأسيس؟</span>
+        <span class="faq-icon text-orange-500 transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer mt-3 text-gray-700 text-base">
+        أيوه، نظام التأسيس مدته 11 يوم لطلاب علمي علوم فقط، بيخليك تبدأ من الأساس بشرح مبسط + تدريب + اختبار يومي.
+      </div>
     </div>
-    <div class="faq-item bg-white p-5 rounded-2xl shadow">
-      <button><span>هل نظام التأسيس يكفيني طول السنة؟</span><span>+</span></button>
-      <div class="faq-answer">لا، هدفه إنك تبدأ فاهم من البداية، وبعدها تكمل بالمتابعة الذكية أو دروسك.</div>
+
+    <div class="faq-item bg-white p-6 rounded-2xl shadow-md transition-all duration-300">
+      <button class="flex justify-between items-center w-full text-right text-lg font-semibold">
+        <span>هل نظام التأسيس يكفيني طول السنة؟</span>
+        <span class="faq-icon text-orange-500 transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer mt-3 text-gray-700 text-base">
+        لا، هدفه إنك تبدأ فاهم من البداية، وبعدها تكمل بالمتابعة الذكية أو دروسك.
+      </div>
     </div>
-    <div class="faq-item bg-white p-5 rounded-2xl shadow">
-      <button><span>نظام المتابعة مناسب لمين؟</span><span>+</span></button>
-      <div class="faq-answer">مناسب لطلاب سنتر أو أونلاين اللي محتاجين تنظيم ومتابعة يومية.</div>
+
+    <div class="faq-item bg-white p-6 rounded-2xl shadow-md transition-all duration-300">
+      <button class="flex justify-between items-center w-full text-right text-lg font-semibold">
+        <span>نظام المتابعة مناسب لمين؟</span>
+        <span class="faq-icon text-orange-500 transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer mt-3 text-gray-700 text-base">
+        مناسب لطلاب سنتر أو أونلاين اللي محتاجين تنظيم ومتابعة يومية.
+      </div>
     </div>
-    <div class="faq-item bg-white p-5 rounded-2xl shadow">
-      <button><span>هل في متابعة شخصية؟</span><span>+</span></button>
-      <div class="faq-answer">أيوه ✅ كل طالب ليه متابعة فردية، بنراجع معاه الواجبات والخطة أول بأول، مع تحفيز مستمر طول السنة.</div>
+
+    <div class="faq-item bg-white p-6 rounded-2xl shadow-md transition-all duration-300">
+      <button class="flex justify-between items-center w-full text-right text-lg font-semibold">
+        <span>هل في متابعة شخصية؟</span>
+        <span class="faq-icon text-orange-500 transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer mt-3 text-gray-700 text-base">
+        أيوه ✅ كل طالب ليه متابعة فردية، بنراجع معاه الواجبات والخطة أول بأول، مع تحفيز مستمر طول السنة.
+      </div>
     </div>
-    <div class="faq-item bg-white p-5 rounded-2xl shadow">
-      <button><span>هل ممكن أشرح أسئلة تقف معايا؟</span><span>+</span></button>
-      <div class="faq-answer">طبعًا ✨ أي نقطة توقف معاك بنوضحها في وقتها.</div>
+
+    <div class="faq-item bg-white p-6 rounded-2xl shadow-md transition-all duration-300">
+      <button class="flex justify-between items-center w-full text-right text-lg font-semibold">
+        <span>هل ممكن أشرح أسئلة تقف معايا؟</span>
+        <span class="faq-icon text-orange-500 transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer mt-3 text-gray-700 text-base">
+        طبعًا ✨ أي نقطة توقف معاك بنوضحها في وقتها.
+      </div>
     </div>
-    <div class="faq-item bg-white p-5 rounded-2xl shadow">
-      <button><span>هل في جروبات للمساعدة؟</span><span>+</span></button>
-      <div class="faq-answer">أيوه 👥 كل مشترك بينضم لجروب خاص للإجابة على أسئلته مرتين أسبوعيًا.<br>وقريبًا: جروبات يومية مع مدرسين متخصصين.</div>
+
+    <div class="faq-item bg-white p-6 rounded-2xl shadow-md transition-all duration-300">
+      <button class="flex justify-between items-center w-full text-right text-lg font-semibold">
+        <span>هل في جروبات للمساعدة؟</span>
+        <span class="faq-icon text-orange-500 transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer mt-3 text-gray-700 text-base">
+        أيوه 👥 كل مشترك بينضم لجروب خاص للإجابة على أسئلته مرتين أسبوعيًا.<br>وقريبًا: جروبات يومية مع مدرسين متخصصين.
+      </div>
     </div>
-    <div class="faq-item bg-white p-5 rounded-2xl shadow">
-      <button><span>هل الاشتراك مجاني؟</span><span>+</span></button>
-      <div class="faq-answer">الاشتراك مدفوع بسعر مناسب للجميع، والهدف إننا نسهّل عليك المذاكرة وتوصل لهدفك.</div>
+
+    <div class="faq-item bg-white p-6 rounded-2xl shadow-md transition-all duration-300">
+      <button class="flex justify-between items-center w-full text-right text-lg font-semibold">
+        <span>هل الاشتراك مجاني؟</span>
+        <span class="faq-icon text-orange-500 transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer mt-3 text-gray-700 text-base">
+        الاشتراك مدفوع بسعر مناسب للجميع، والهدف إننا نسهّل عليك المذاكرة وتوصل لهدفك.
+      </div>
     </div>
-    <div class="faq-item bg-white p-5 rounded-2xl shadow">
-      <button><span>هل الاشتراك شهري؟</span><span>+</span></button>
-      <div class="faq-answer">ممكن تشترك شهري، أو نص سنوي أو سنوي بخصومات خاصة.<br>كمان متاح الاشتراك الأسبوعي كتجربة.</div>
+
+    <div class="faq-item bg-white p-6 rounded-2xl shadow-md transition-all duration-300">
+      <button class="flex justify-between items-center w-full text-right text-lg font-semibold">
+        <span>هل الاشتراك شهري؟</span>
+        <span class="faq-icon text-orange-500 transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer mt-3 text-gray-700 text-base">
+        ممكن تشترك شهري، أو نص سنوي أو سنوي بخصومات خاصة.<br>كمان متاح الاشتراك الأسبوعي كتجربة.
+      </div>
     </div>
-    <div class="faq-item bg-white p-5 rounded-2xl shadow">
-      <button><span>طيب لو أنا مش عاجبني النظام؟</span><span>+</span></button>
-      <div class="faq-answer">عشان كده وفرنا الاشتراك الأسبوعي بـ 50 جنيه 👌، تجرب بنفسك الأول ولو ارتحت تكمل.</div>
+
+    <div class="faq-item bg-white p-6 rounded-2xl shadow-md transition-all duration-300">
+      <button class="flex justify-between items-center w-full text-right text-lg font-semibold">
+        <span>طيب لو أنا مش عاجبني النظام؟</span>
+        <span class="faq-icon text-orange-500 transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer mt-3 text-gray-700 text-base">
+        عشان كده وفرنا الاشتراك الأسبوعي بـ 50 جنيه 👌، تجرب بنفسك الأول ولو ارتحت تكمل.
+      </div>
     </div>
-    <div class="faq-item bg-white p-5 rounded-2xl shadow">
-      <button><span>هل طرق الدفع سهلة؟</span><span>+</span></button>
-      <div class="faq-answer">أيوه الدفع عن طريق فودافون كاش، وبعد التحويل بتبعت بياناتك في رسالة واحدة.</div>
+
+    <div class="faq-item bg-white p-6 rounded-2xl shadow-md transition-all duration-300">
+      <button class="flex justify-between items-center w-full text-right text-lg font-semibold">
+        <span>هل طرق الدفع سهلة؟</span>
+        <span class="faq-icon text-orange-500 transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer mt-3 text-gray-700 text-base">
+        أيوه الدفع عن طريق فودافون كاش، وبعد التحويل بتبعت بياناتك في رسالة واحدة.
+      </div>
     </div>
-    <div class="faq-item bg-white p-5 rounded-2xl shadow">
-      <button><span>هل أولياء الأمور ليهم متابعة خاصة؟</span><span>+</span></button>
-      <div class="faq-answer">طبعًا فيه تقارير دورية لولي الأمر علشان يطمن إن ابنه ماشي حسب الخطة.</div>
+
+    <div class="faq-item bg-white p-6 rounded-2xl shadow-md transition-all duration-300">
+      <button class="flex justify-between items-center w-full text-right text-lg font-semibold">
+        <span>هل أولياء الأمور ليهم متابعة خاصة؟</span>
+        <span class="faq-icon text-orange-500 transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer mt-3 text-gray-700 text-base">
+        طبعًا فيه تقارير دورية لولي الأمر علشان يطمن إن ابنه ماشي حسب الخطة.
+      </div>
     </div>
-    <div class="faq-item bg-white p-5 rounded-2xl shadow">
-      <button><span>إيه اللي يميّزنا عن أي نظام متابعة تاني؟</span><span>+</span></button>
-      <div class="faq-answer">
+
+    <div class="faq-item bg-white p-6 rounded-2xl shadow-md transition-all duration-300">
+      <button class="flex justify-between items-center w-full text-right text-lg font-semibold">
+        <span>إيه اللي يميّزنا عن أي نظام متابعة تاني؟</span>
+        <span class="faq-icon text-orange-500 transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer mt-3 text-gray-700 text-base">
         - خطة تأسيس منظمة لمدة 11 يوم للي يبدأ من الصفر.<br>
         - خطة مذاكرة يومية متظبطة على جدول محاضراتك.<br>
         - متابعة شخصية بدون تراكم.<br>
@@ -193,7 +258,7 @@
     </div>
     <div>
       <h4 class="font-bold text-lg mb-3 text-[var(--orange)]">تواصل معنا</h4>
-      <p class="text-sm mb-4"><a href="https://t.me/ThanaWay_team" target="_blank" class="hover:text-[var(--orange)]">دعم رحلة تالتة ثانوي</a></p>
+      <p class="text-sm mb-4">📞 <a href="https://t.me/ThanaWay_team" target="_blank" class="hover:text-[var(--orange)]">دعم رحلة تالتة ثانوي</a></p>
       <div class="flex justify-center sm:justify-start gap-5">
         <a href="https://www.facebook.com/share/15pgEbCdQX/" target="_blank" class="relative group w-12 h-12 flex items-center justify-center bg-white/10 rounded-full shadow-lg hover:bg-[#4267B2]/30 transition-all duration-300">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white group-hover:text-white transition-transform duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
@@ -209,11 +274,13 @@
     </div>
   </div>
 
-  <div class="bg-[var(--brown)] py-4 text-center px-4 border-t border-gray-700">
+  <div class="bg-[var(--brown)]/90 py-4 text-center px-4 border-t border-gray-700">
     <p class="text-sm text-gray-300">© 2025 جميع الحقوق محفوظة لموقع رحلة تالتة ثانوي</p>
     <p class="mt-1 text-sm text-gray-300">
       تصميم وتطوير: 
-      <a href="https://t.me/A7MEDS3L3H" target="_blank" class="font-bold transition duration-300 transform hover:text-white hover:underline hover:scale-105" style="color:#1DA1F2;">
+      <a href="https://t.me/A7MEDS3L3H" target="_blank"
+         class="font-bold transition duration-300 transform hover:text-white hover:underline hover:scale-105"
+         style="color:#1DA1F2;">
         AHMED SALAH
       </a>
     </p>
@@ -222,8 +289,8 @@
 
 <script>
   // FAQ toggle
-  document.querySelectorAll('.faq-item button').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
+  document.querySelectorAll('.faq-item button').forEach(btn => {
+    btn.addEventListener('click', () => {
       const item = btn.parentElement;
       item.classList.toggle('active');
     });
@@ -236,14 +303,14 @@
   const menuIcon = document.getElementById('menu-icon');
   const closeIcon = document.getElementById('close-icon');
 
-  mobileBtn.addEventListener('click', ()=>{
+  mobileBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('translate-x-full');
     overlay.classList.toggle('hidden');
     menuIcon.classList.toggle('hidden');
     closeIcon.classList.toggle('hidden');
   });
 
-  overlay.addEventListener('click', ()=>{
+  overlay.addEventListener('click', () => {
     mobileMenu.classList.add('translate-x-full');
     overlay.classList.add('hidden');
     menuIcon.classList.remove('hidden');
