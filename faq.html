@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الأسئلة الشائعة | رحلة تالتة ثانوي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --brown: #5C4033;
+      --orange: #F4A261;
+      --bg-page: #FAF5F0;
+    }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--bg-page);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* منع تحريك الصفحة يمين/يسار */
+    }
+
+    /* Navbar */
+    .nav-link {
+      color: white; 
+      font-weight: 600; 
+      padding: 0.5rem 1rem; 
+      border-radius: 0.5rem; 
+      transition: all 0.3s ease;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--orange); }
+    .mobile-link { color: white; font-weight: 600; padding: 0.5rem 1rem; display: block; transition: all 0.3s ease; }
+    .mobile-link:hover, .mobile-link.active { color: var(--orange); }
+
+    /* FAQ */
+    .faq-item button { 
+      transition: all 0.3s ease; 
+      width: 100%; 
+      text-align: right; 
+      font-size: 1.125rem; 
+      font-weight: 600; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center;
+    }
+    .faq-item button:hover { color: var(--orange); }
+    .faq-answer { 
+      max-height: 0; 
+      overflow: hidden; 
+      transition: max-height 0.5s ease, padding 0.3s ease; 
+      padding-top: 0; 
+      color: #444; 
+      line-height: 1.6; 
+    }
+    .faq-item.active .faq-answer { 
+      max-height: 500px; 
+      padding-top: 0.5rem; 
+    }
+
+    /* FAQ Header */
+    h2.faq-header {
+      text-shadow: none;
+      color: var(--brown);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="fixed w-full left-0 z-50 bg-[var(--brown)] shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- شعار -->
+      <a href="index.html" class="flex items-center space-x-3 transition-transform duration-300 hover:scale-105 hover:-translate-y-1">
+        <img src="images/logo-edu.jpg" alt="شعار رحلة تالتة ثانوي" class="w-12 h-12 rounded-full shadow-lg">
+        <h1 class="text-xl sm:text-2xl font-extrabold text-white drop-shadow-lg">رحلة تالتة ثانوي</h1>
+      </a>
+
+      <!-- روابط الكمبيوتر -->
+      <div class="hidden sm:flex flex-1 justify-center space-x-10">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="course1.html" class="nav-link">نظام التأسيس</a>
+        <a href="course2.html" class="nav-link">المتابعة الذكية</a>
+        <a href="faq.html" class="nav-link">الأسئلة الشائعة</a>
+        <a href="about.html" class="nav-link">عن الرحلة</a>
+      </div>
+
+      <!-- زر الموبايل -->
+      <div class="sm:hidden relative z-50">
+        <button id="mobile-menu-btn" aria-label="فتح القائمة" class="focus:outline-none p-2 rounded-md hover:bg-white/10 transition text-white text-2xl">
+          <span id="menu-icon">☰</span>
+          <span id="close-icon" class="hidden">✖</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<!-- Overlay -->
+<div id="overlay" class="fixed inset-0 bg-black/40 hidden z-40"></div>
+
+<!-- قائمة الموبايل -->
+<div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-[var(--brown)] p-6 space-y-4 shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+  <a href="index.html" class="mobile-link">الرئيسية</a>
+  <a href="course1.html" class="mobile-link">نظام التأسيس</a>
+  <a href="course2.html" class="mobile-link">المتابعة الذكية</a>
+  <a href="faq.html" class="mobile-link">الأسئلة الشائعة</a>
+  <a href="about.html" class="mobile-link">عن الرحلة</a>
+</div>
+
+<!-- FAQ Section -->
+<main class="max-w-4xl mx-auto py-20 px-4">
+  <h2 class="text-3xl font-bold text-center mb-10 faq-header">الأسئلة الشائعة</h2>
+
+  <div class="space-y-6">
+    <div class="faq-item bg-white p-5 rounded-2xl shadow">
+      <button><span>هل في نظام تأسيس؟</span><span>+</span></button>
+      <div class="faq-answer">أيوه، نظام التأسيس مدته 11 يوم لطلاب علمي علوم فقط، بيخليك تبدأ من الأساس بشرح مبسط + تدريب + اختبار يومي.</div>
+    </div>
+    <div class="faq-item bg-white p-5 rounded-2xl shadow">
+      <button><span>هل نظام التأسيس يكفيني طول السنة؟</span><span>+</span></button>
+      <div class="faq-answer">لا، هدفه إنك تبدأ فاهم من البداية، وبعدها تكمل بالمتابعة الذكية أو دروسك.</div>
+    </div>
+    <div class="faq-item bg-white p-5 rounded-2xl shadow">
+      <button><span>نظام المتابعة مناسب لمين؟</span><span>+</span></button>
+      <div class="faq-answer">مناسب لطلاب سنتر أو أونلاين اللي محتاجين تنظيم ومتابعة يومية.</div>
+    </div>
+    <div class="faq-item bg-white p-5 rounded-2xl shadow">
+      <button><span>هل في متابعة شخصية؟</span><span>+</span></button>
+      <div class="faq-answer">أيوه ✅ كل طالب ليه متابعة فردية، بنراجع معاه الواجبات والخطة أول بأول، مع تحفيز مستمر طول السنة.</div>
+    </div>
+    <div class="faq-item bg-white p-5 rounded-2xl shadow">
+      <button><span>هل ممكن أشرح أسئلة تقف معايا؟</span><span>+</span></button>
+      <div class="faq-answer">طبعًا ✨ أي نقطة توقف معاك بنوضحها في وقتها.</div>
+    </div>
+    <div class="faq-item bg-white p-5 rounded-2xl shadow">
+      <button><span>هل في جروبات للمساعدة؟</span><span>+</span></button>
+      <div class="faq-answer">أيوه 👥 كل مشترك بينضم لجروب خاص للإجابة على أسئلته مرتين أسبوعيًا.<br>وقريبًا: جروبات يومية مع مدرسين متخصصين.</div>
+    </div>
+    <div class="faq-item bg-white p-5 rounded-2xl shadow">
+      <button><span>هل الاشتراك مجاني؟</span><span>+</span></button>
+      <div class="faq-answer">الاشتراك مدفوع بسعر مناسب للجميع، والهدف إننا نسهّل عليك المذاكرة وتوصل لهدفك.</div>
+    </div>
+    <div class="faq-item bg-white p-5 rounded-2xl shadow">
+      <button><span>هل الاشتراك شهري؟</span><span>+</span></button>
+      <div class="faq-answer">ممكن تشترك شهري، أو نص سنوي أو سنوي بخصومات خاصة.<br>كمان متاح الاشتراك الأسبوعي كتجربة.</div>
+    </div>
+    <div class="faq-item bg-white p-5 rounded-2xl shadow">
+      <button><span>طيب لو أنا مش عاجبني النظام؟</span><span>+</span></button>
+      <div class="faq-answer">عشان كده وفرنا الاشتراك الأسبوعي بـ 50 جنيه 👌، تجرب بنفسك الأول ولو ارتحت تكمل.</div>
+    </div>
+    <div class="faq-item bg-white p-5 rounded-2xl shadow">
+      <button><span>هل طرق الدفع سهلة؟</span><span>+</span></button>
+      <div class="faq-answer">أيوه الدفع عن طريق فودافون كاش، وبعد التحويل بتبعت بياناتك في رسالة واحدة.</div>
+    </div>
+    <div class="faq-item bg-white p-5 rounded-2xl shadow">
+      <button><span>هل أولياء الأمور ليهم متابعة خاصة؟</span><span>+</span></button>
+      <div class="faq-answer">طبعًا فيه تقارير دورية لولي الأمر علشان يطمن إن ابنه ماشي حسب الخطة.</div>
+    </div>
+    <div class="faq-item bg-white p-5 rounded-2xl shadow">
+      <button><span>إيه اللي يميّزنا عن أي نظام متابعة تاني؟</span><span>+</span></button>
+      <div class="faq-answer">
+        - خطة تأسيس منظمة لمدة 11 يوم للي يبدأ من الصفر.<br>
+        - خطة مذاكرة يومية متظبطة على جدول محاضراتك.<br>
+        - متابعة شخصية بدون تراكم.<br>
+        - شرح أي نقطة تقف معاك وقت ما تحتاج.<br>
+        - مرونة في الاشتراك (أسبوعي – شهري – سنوي).<br>
+        - جروبات دعم لحل أي سؤال.<br>
+        - خصومات للصحاب والمجموعات.
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[var(--brown)] text-white mt-16">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-right py-10 px-6">
+    <div>
+      <h4 class="font-bold text-lg mb-3 text-[var(--orange)]">رحلة تالتة ثانوي</h4>
+      <p class="text-sm text-gray-200 leading-relaxed">أفضل أنظمة تأسيس ومتابعة ذكية لطلاب الثانوية العامة مع متابعة شخصية وتقارير للأهالي.</p>
+    </div>
+    <div>
+      <h4 class="font-bold text-lg mb-3 text-[var(--orange)]">روابط سريعة</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="index.html" class="hover:text-[var(--orange)]">الرئيسية</a></li>
+        <li><a href="course1.html" class="hover:text-[var(--orange)]">نظام التأسيس</a></li>
+        <li><a href="course2.html" class="hover:text-[var(--orange)]">المتابعة الذكية</a></li>
+        <li><a href="faq.html" class="hover:text-[var(--orange)]">الأسئلة الشائعة</a></li>
+        <li><a href="about.html" class="hover:text-[var(--orange)]">عن رحلة تالتة ثانوي</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold text-lg mb-3 text-[var(--orange)]">تواصل معنا</h4>
+      <p class="text-sm mb-4"><a href="https://t.me/ThanaWay_team" target="_blank" class="hover:text-[var(--orange)]">دعم رحلة تالتة ثانوي</a></p>
+      <div class="flex justify-center sm:justify-start gap-5">
+        <a href="https://www.facebook.com/share/15pgEbCdQX/" target="_blank" class="relative group w-12 h-12 flex items-center justify-center bg-white/10 rounded-full shadow-lg hover:bg-[#4267B2]/30 transition-all duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white group-hover:text-white transition-transform duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987H7.898v-2.892h2.54V9.797c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.242 0-1.63.771-1.63 1.562v1.875h2.773l-.443 2.892h-2.33v6.987C18.343 21.128 22 16.991 22 12z"/>
+          </svg>
+        </a>
+        <a href="https://t.me/Thana_Way" target="_blank" class="relative group w-12 h-12 flex items-center justify-center bg-white/10 rounded-full shadow-lg hover:bg-[#2AABEE]/30 transition-all duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white group-hover:text-white transition-transform duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0C5.372 0 0 5.373 0 12c0 6.627 5.372 12 12 12 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12zm5.062 7.03l-1.768 8.345c-.134.607-.482.753-.974.471l-2.7-1.995-1.303 1.256c-.144.144-.265.265-.54.265l.193-2.73 4.972-4.492c.216-.193-.047-.302-.335-.11l-6.152 3.873-2.647-.827c-.574-.182-.584-.574.12-.849l10.346-3.99c.48-.153.898.114.746.835z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-[var(--brown)] py-4 text-center px-4 border-t border-gray-700">
+    <p class="text-sm text-gray-300">© 2025 جميع الحقوق محفوظة لموقع رحلة تالتة ثانوي</p>
+    <p class="mt-1 text-sm text-gray-300">
+      تصميم وتطوير: 
+      <a href="https://t.me/A7MEDS3L3H" target="_blank" class="font-bold transition duration-300 transform hover:text-white hover:underline hover:scale-105" style="color:#1DA1F2;">
+        AHMED SALAH
+      </a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  // FAQ toggle
+  document.querySelectorAll('.faq-item button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const item = btn.parentElement;
+      item.classList.toggle('active');
+    });
+  });
+
+  // Mobile menu toggle
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('overlay');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  mobileBtn.addEventListener('click', ()=>{
+    mobileMenu.classList.toggle('translate-x-full');
+    overlay.classList.toggle('hidden');
+    menuIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+  });
+
+  overlay.addEventListener('click', ()=>{
+    mobileMenu.classList.add('translate-x-full');
+    overlay.classList.add('hidden');
+    menuIcon.classList.remove('hidden');
+    closeIcon.classList.add('hidden');
+  });
+</script>
+
+</body>
+</html>
