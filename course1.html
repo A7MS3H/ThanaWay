@@ -132,16 +132,24 @@ overlay.addEventListener('click', () => {
   </div>
 </section>
 
-<!-- Price & CTA -->
+<!-- Price & CTA مع دمج زر الاشتراك داخل الكارت -->
 <div class="mx-auto max-w-xl my-10 sm:my-16 relative" data-aos="zoom-in">
-  <div class="card text-center py-8 sm:py-12 px-4 sm:px-6 shadow-2xl border-t-8 border-[#2A9D8F]">
-    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-[#2A9D8F] text-white px-4 sm:px-6 py-1 sm:py-2 rounded-full text-sm sm:text-lg font-bold shadow-lg">🎉 عرض خاص</div>
-    <h3 class="text-2xl sm:text-3xl font-extrabold mb-2 sm:mb-4 text-[#E76F51]">💰 سعر الاشتراك</h3>
-    <p class="text-4xl sm:text-5xl font-extrabold text-[#2A9D8F] mb-2 sm:mb-4">50<span class="text-xl sm:text-2xl">جنيه</span></p>
-    <p class="text-sm sm:text-lg text-gray-700">اشترك دلوقتي واستفيد بكل المميزات</p>
-    <a href="payment.html" class="btn mt-4 inline-block">🚀 اشترك دلوقتي</a>
+  <div class="card text-center py-8 sm:py-12 px-4 sm:px-6 shadow-2xl border-t-8 flex flex-col items-center gap-6" style="border-color: #2A9D8F;">
+    <!-- عنوان الكارت -->
+    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-[#2A9D8F] text-white px-4 sm:px-6 py-1 sm:py-2 rounded-full text-sm sm:text-lg font-bold shadow-lg">
+      🎉 عرض خاص
+    </div>
+
+    <!-- السعر -->
+    <h3 class="text-2xl sm:text-3xl font-extrabold text-[#E76F51]">💰 سعر الاشتراك</h3>
+    <p class="text-4xl sm:text-5xl font-extrabold text-[#2A9D8F]">50<span class="text-xl sm:text-2xl"> جنيه</span></p>
+    <p class="text-sm sm:text-lg text-gray-700 mt-2">اشترك دلوقتي واستفيد بكل المميزات</p>
+
+    <!-- زر الاشتراك -->
+    <a href="payment.html" class="btn mt-4" data-aos="flip-up">🚀 اشترك دلوقتي</a>
   </div>
 </div>
+
 
 <!-- Footer -->
 <footer class="bg-[var(--brown)] text-white mt-16">
