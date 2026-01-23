@@ -6,6 +6,7 @@
   <title>عن رحلة تالتة ثانوي</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root {
       --brown: #5A3A1B;
@@ -18,21 +19,26 @@
       font-family: 'Cairo', sans-serif;
       margin: 0;
       padding: 0;
-      background: #fdfdfd;
-      scroll-behavior: smooth;
       overflow-x: hidden;
+      background: #fdfdfd;
     }
 
     /* Navbar Links */
     .nav-link, .mobile-link {
-      color: white;
       font-weight: 600;
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
       transition: all 0.3s ease;
+      color: white; /* اللون الأساسي لكل الروابط */
     }
-    .nav-link:hover, .mobile-link:hover { color: var(--orange); }
-    .nav-link.active, .mobile-link.active { color: var(--orange); }
+
+    .nav-link:hover, .mobile-link:hover {
+      color: var(--orange); /* تأثير hover فقط */
+    }
+
+    .mobile-link {
+      display: block;
+    }
 
     /* Buttons */
     .btn-detail {
@@ -61,26 +67,12 @@
     }
     .social-btn.telegram { background: var(--orange); box-shadow: 0 0 15px rgba(244, 162, 97, 0.5); }
     .social-btn.bot { background: var(--cyan); box-shadow: 0 0 15px rgba(42, 157, 143, 0.5); }
-    .social-btn.facebook { background: #4267B2; box-shadow: 0 0 15px rgba(66,103,178,0.5); }
-
-    .social-btn:hover { transform: translateY(-4px) scale(1.05); }
+    .social-btn:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 0 25px rgba(0,0,0,0.2); }
 
     img { max-width: 100%; height: auto; display: block; }
 
-    /* Features */
-    .feature {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      background-color: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.2s, box-shadow 0.2s;
-      font-weight: 600;
-    }
-    .feature:hover { transform: translateY(-4px); box-shadow: 0 6px 18px rgba(0,0,0,0.1); }
-    .feature svg { width: 32px; height: 32px; fill: var(--cyan); }
+    /* Overlay transition */
+    #overlay { transition: opacity 0.3s ease; }
   </style>
 </head>
 
@@ -90,14 +82,16 @@
 <nav class="fixed w-full z-50 bg-[var(--brown)]/90 backdrop-blur-md shadow-lg">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
+
+      <!-- شعار -->
       <a href="index.html" class="flex items-center space-x-3 transition-transform duration-300 hover:scale-105 hover:-translate-y-1">
-        <img src="images/logo-edu.jpg" alt="شعار" class="w-12 h-12 rounded-full shadow-lg">
+        <img src="images/logo-edu.jpg" alt="شعار رحلة تالتة ثانوي" class="w-12 h-12 rounded-full shadow-lg">
         <h1 class="text-xl sm:text-2xl font-extrabold text-white drop-shadow-lg">رحلة تالتة ثانوي</h1>
       </a>
 
       <!-- روابط الكمبيوتر -->
       <div class="hidden sm:flex flex-1 justify-center space-x-10">
-        <a href="index.html" class="nav-link">الرئيسية</a
+        <a href="index.html" class="nav-link">الرئيسية</a>
         <a href="course2.html" class="nav-link">المتابعة الذكية</a>
         <a href="faq.html" class="nav-link">الأسئلة الشائعة</a>
         <a href="about.html" class="nav-link">عن الرحلة</a>
@@ -105,11 +99,12 @@
 
       <!-- زر الموبايل -->
       <div class="sm:hidden relative z-50">
-        <button id="mobile-menu-btn" class="focus:outline-none p-2 rounded-md hover:bg-white/10 transition text-white text-2xl">
+        <button id="mobile-menu-btn" aria-label="فتح القائمة" class="focus:outline-none p-2 rounded-md hover:bg-white/10 transition text-white text-2xl">
           <span id="menu-icon">☰</span>
           <span id="close-icon" class="hidden">✖</span>
         </button>
       </div>
+
     </div>
   </div>
 </nav>
@@ -118,11 +113,11 @@
 <div id="overlay" class="fixed inset-0 bg-black/40 hidden z-40"></div>
 
 <!-- قائمة الموبايل -->
-<div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-[var(--brown)]/95 backdrop-blur-md p-6 space-y-4 shadow-lg transform translate-x-full transition-transform duration-300 z-50 flex flex-col">
-  <a href="index.html" class="mobile-link block py-2 px-4 rounded hover:bg-[var(--orange)]/20">الرئيسية</a>
-  <a href="course2.html" class="mobile-link block py-2 px-4 rounded hover:bg-[var(--orange)]/20">المتابعة الذكية</a>
-  <a href="faq.html" class="mobile-link block py-2 px-4 rounded hover:bg-[var(--orange)]/20">الأسئلة الشائعة</a>
-  <a href="about.html" class="mobile-link block py-2 px-4 rounded hover:bg-[var(--orange)]/20">عن الرحلة</a>
+<div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-[var(--brown)]/95 backdrop-blur-md p-6 space-y-4 shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+  <a href="index.html" class="mobile-link">الرئيسية</a>
+  <a href="course2.html" class="mobile-link">المتابعة الذكية</a>
+  <a href="faq.html" class="mobile-link">الأسئلة الشائعة</a>
+  <a href="about.html" class="mobile-link">عن الرحلة</a>
 </div>
 
 <!-- Hero -->
@@ -242,6 +237,7 @@
 </script>
 </body>
 </html>
+
 
 
 
