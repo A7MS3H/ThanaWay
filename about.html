@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>رحلة تالتة ثانوي</title>
+  <title> عن رحلة تالتة ثانوي </title>
 
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
@@ -25,7 +30,6 @@
       background: #fdfdfd;
     }
 
-    /* Navbar Links */
     .nav-link, .mobile-link {
       font-weight: 600;
       padding: 0.5rem 1rem;
@@ -38,7 +42,6 @@
     }
     .mobile-link { display: block; }
 
-    /* Features */
     .feature {
       background: #fff;
       padding: 1.5rem;
@@ -51,7 +54,6 @@
     }
     .feature:hover { transform: translateY(-6px); }
 
-    /* Social Buttons */
     .social-btn {
       padding: 0.75rem 1.5rem;
       border-radius: 1rem;
@@ -70,38 +72,41 @@
 
 <body>
 
-<!-- ================= Navbar (كما أرسلته بدون أي تعديل) ================= -->
+<!-- ================= Navbar ================= -->
 <nav class="fixed w-full z-50 bg-[var(--brown)]/90 backdrop-blur-md shadow-lg">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto px-4">
     <div class="flex items-center justify-between h-16">
 
-      <a href="index.html" class="flex items-center space-x-3 transition-transform duration-300 hover:scale-105 hover:-translate-y-1">
+      <a href="index.html" class="flex items-center space-x-3 space-x-reverse hover:scale-105 transition">
         <img src="images/logo-edu.jpg" alt="شعار رحلة تالتة ثانوي" class="w-12 h-12 rounded-full shadow-lg">
-        <h1 class="text-xl sm:text-2xl font-extrabold text-white drop-shadow-lg">رحلة تالتة ثانوي</h1>
+        <h1 class="text-xl sm:text-2xl font-extrabold text-white">رحلة تالتة ثانوي</h1>
       </a>
 
-      <div class="hidden sm:flex flex-1 justify-center space-x-10">
+      <div class="hidden sm:flex flex-1 justify-center space-x-10 space-x-reverse">
         <a href="index.html" class="nav-link">الرئيسية</a>
         <a href="course2.html" class="nav-link">المتابعة الذكية</a>
         <a href="faq.html" class="nav-link">الأسئلة الشائعة</a>
         <a href="about.html" class="nav-link">عن الرحلة</a>
       </div>
 
-      <div class="sm:hidden relative z-50">
-        <button id="mobile-menu-btn" class="p-2 rounded-md hover:bg-white/10 transition text-white text-2xl">
-          <span id="menu-icon">☰</span>
-          <span id="close-icon" class="hidden">✖</span>
-        </button>
-      </div>
+      <button id="mobile-menu-btn" aria-label="فتح القائمة"
+        class="sm:hidden text-white text-2xl p-2 rounded-md hover:bg-white/10 transition">
+        <span id="menu-icon">☰</span>
+        <span id="close-icon" class="hidden">✖</span>
+      </button>
 
     </div>
   </div>
 </nav>
 
+<!-- Overlay -->
 <div id="overlay" class="fixed inset-0 bg-black/40 hidden z-40"></div>
 
+<!-- Mobile Menu -->
 <div id="mobile-menu"
-     class="fixed top-0 right-0 h-full w-64 bg-[var(--brown)]/95 backdrop-blur-md p-6 space-y-4 shadow-lg transform translate-x-full transition duration-300 z-50">
+ class="fixed top-0 right-0 h-full w-64 bg-[var(--brown)]/95 backdrop-blur-md
+ p-6 space-y-4 shadow-lg transform translate-x-full
+ transition-transform duration-300 z-50">
   <a href="index.html" class="mobile-link">الرئيسية</a>
   <a href="course2.html" class="mobile-link">المتابعة الذكية</a>
   <a href="faq.html" class="mobile-link">الأسئلة الشائعة</a>
@@ -110,8 +115,12 @@
 
 <!-- ================= Hero ================= -->
 <section class="pt-28 pb-20 text-center bg-[var(--brown)] text-white">
-  <h2 class="text-4xl font-extrabold mb-4" data-aos="fade-down">عن رحلة تالتة ثانوي</h2>
-  <p class="text-lg" data-aos="fade-up">منصة تعليمية متكاملة لطلاب الثانوية العامة</p>
+  <h2 class="text-4xl font-extrabold mb-4" data-aos="fade-down">
+    عن رحلة تالتة ثانوي
+  </h2>
+  <p class="text-lg" data-aos="fade-up">
+    منصة تعليمية متكاملة لطلاب الثانوية العامة
+  </p>
 </section>
 
 <!-- ================= Content ================= -->
@@ -129,7 +138,9 @@
 
 <!-- ================= Contact ================= -->
 <section class="max-w-5xl mx-auto px-4 py-12 bg-[var(--beige)] rounded-xl">
-  <h2 class="text-2xl font-bold text-center text-[var(--brown)] mb-6">تواصل معنا</h2>
+  <h2 class="text-2xl font-bold text-center text-[var(--brown)] mb-6">
+    تواصل معنا
+  </h2>
   <div class="flex justify-center gap-4 flex-wrap">
     <a href="https://t.me/ThanaWayOfficial_team" class="social-btn bot">🤖 دعم الرحلة</a>
     <a href="https://t.me/ThanaWayOfficial1" class="social-btn telegram">📢 قناة الرحلة</a>
@@ -137,92 +148,68 @@
   </div>
 </section>
 
-<!-- Footer -->
+<!-- ================= Footer ================= -->
 <footer class="bg-[var(--brown)] text-white mt-16">
-  <!-- الجزء العلوي: معلومات الموقع، روابط، تواصل -->
-  <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-right py-10 px-6">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 py-10 px-6 text-center sm:text-right">
     <div>
       <h4 class="font-bold text-lg mb-3 text-[var(--orange)]">رحلة تالتة ثانوي</h4>
-      <p class="text-sm text-gray-200 leading-relaxed">أفضل أنظمة تأسيس ومتابعة ذكية لطلاب الثانوية العامة مع متابعة شخصية وتقارير للأهالي.</p>
+      <p class="text-sm text-gray-200">
+        أفضل أنظمة تأسيس ومتابعة ذكية لطلاب الثانوية العامة مع متابعة شخصية وتقارير للأهالي.
+      </p>
     </div>
+
     <div>
       <h4 class="font-bold text-lg mb-3 text-[var(--orange)]">روابط سريعة</h4>
       <ul class="space-y-2 text-sm">
         <li><a href="index.html" class="hover:text-[var(--orange)]">الرئيسية</a></li>
         <li><a href="course2.html" class="hover:text-[var(--orange)]">المتابعة الذكية</a></li>
         <li><a href="faq.html" class="hover:text-[var(--orange)]">الأسئلة الشائعة</a></li>
-        <li><a href="about.html" class="hover:text-[var(--orange)]">عن رحلة تالتة ثانوي</a></li>
+        <li><a href="about.html" class="hover:text-[var(--orange)]">عن الرحلة</a></li>
       </ul>
     </div>
+
     <div>
       <h4 class="font-bold text-lg mb-3 text-[var(--orange)]">تواصل معنا</h4>
-      <p class="text-sm mb-4">📞 <a href="https://t.me/ThanaWayOfficial_team" target="_blank" class="hover:text-[var(--orange)]">دعم رحلة تالتة ثانوي</a></p>
-      <div class="flex justify-center sm:justify-start gap-5">
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/ThanaWayOfficial" target="_blank" class="relative group w-12 h-12 flex items-center justify-center bg-white/10 rounded-full shadow-lg hover:bg-[#4267B2]/30 transition-all duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white group-hover:text-white transition-transform duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987H7.898v-2.892h2.54V9.797c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.242 0-1.63.771-1.63 1.562v1.875h2.773l-.443 2.892h-2.33v6.987C18.343 21.128 22 16.991 22 12z"/>
-          </svg>
-        </a>
-        <!-- Telegram -->
-        <a href="https://t.me/ThanaWayOfficial1" target="_blank" class="relative group w-12 h-12 flex items-center justify-center bg-white/10 rounded-full shadow-lg hover:bg-[#2AABEE]/30 transition-all duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white group-hover:text-white transition-transform duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0C5.372 0 0 5.373 0 12c0 6.627 5.372 12 12 12 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12zm5.062 7.03l-1.768 8.345c-.134.607-.482.753-.974.471l-2.7-1.995-1.303 1.256c-.144.144-.265.265-.54.265l.193-2.73 4.972-4.492c.216-.193-.047-.302-.335-.11l-6.152 3.873-2.647-.827c-.574-.182-.584-.574.12-.849l10.346-3.99c.48-.153.898.114.746.835z"/>
-          </svg>
-        </a>
-      </div>
+      <p class="text-sm">
+        📞 <a href="https://t.me/ThanaWayOfficial_team" class="hover:text-[var(--orange)]">دعم رحلة تالتة ثانوي</a>
+      </p>
     </div>
   </div>
 
-  <!-- الجزء السفلي: حقوق الملكية وتصميم الموقع -->
-  <div class="bg-[var(--brown)]/90 py-4 text-center px-4 border-t border-gray-700">
+  <div class="bg-[var(--brown)]/90 py-4 text-center border-t border-gray-700">
     <p class="text-sm text-gray-300">© 2025 جميع الحقوق محفوظة لموقع رحلة تالتة ثانوي</p>
     <p class="mt-1 text-sm text-gray-300">
-      تصميم وتطوير: 
+      تصميم وتطوير:
       <a href="https://t.me/A7MEDS3L3H" target="_blank"
-         class="font-bold transition duration-300 transform hover:text-white hover:underline hover:scale-105"
-         style="color:#1DA1F2;">
+         class="font-bold underline" style="color:#1DA1F2;">
         AHMED SALAH
       </a>
     </p>
   </div>
 </footer>
 
-
-<!-- JS التحكم بالموبايل -->
+<!-- ================= JS ================= -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-const btn = document.getElementById('mobile-menu-btn');
-const menu = document.getElementById('mobile-menu');
-const overlay = document.getElementById('overlay');
-const menuIcon = document.getElementById('menu-icon');
-const closeIcon = document.getElementById('close-icon');
+  AOS.init({ once: true });
 
-btn.addEventListener('click', () => {
-  const isOpen = menu.classList.contains('translate-x-0');
-  if (isOpen) {
-    menu.classList.remove('translate-x-0');
-    menu.classList.add('translate-x-full');
-    overlay.classList.add('hidden');
-    menuIcon.classList.remove('hidden');
-    closeIcon.classList.add('hidden');
-  } else {
-    menu.classList.remove('translate-x-full');
-    menu.classList.add('translate-x-0');
-    overlay.classList.remove('hidden');
-    menuIcon.classList.add('hidden');
-    closeIcon.classList.remove('hidden');
-  }
-});
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('overlay');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
 
-overlay.addEventListener('click', () => {
-  menu.classList.remove('translate-x-0');
-  menu.classList.add('translate-x-full');
-  overlay.classList.add('hidden');
-  menuIcon.classList.remove('hidden');
-  closeIcon.classList.add('hidden');
-});
+  btn.addEventListener('click', () => {
+    const open = menu.classList.contains('translate-x-0');
+    menu.classList.toggle('translate-x-0');
+    menu.classList.toggle('translate-x-full');
+    overlay.classList.toggle('hidden');
+    menuIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+  });
+
+  overlay.addEventListener('click', () => btn.click());
 </script>
 
 </body>
 </html>
-
