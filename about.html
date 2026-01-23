@@ -3,15 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>عن رحلة تالتة ثانوي</title>
+  <title>رحلة تالتة ثانوي</title>
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
@@ -30,36 +25,22 @@
       background: #fdfdfd;
     }
 
-    /* Navbar links */
+    /* Navbar Links */
     .nav-link, .mobile-link {
       font-weight: 600;
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
+      transition: all 0.3s ease;
       color: white;
-      transition: 0.3s;
     }
     .nav-link:hover, .mobile-link:hover {
       color: var(--orange);
     }
-
-    /* Social buttons */
-    .social-btn {
-      padding: 0.75rem 1.5rem;
-      border-radius: 1rem;
-      font-weight: bold;
-      color: white;
-      transition: 0.3s;
-    }
-    .social-btn.telegram { background: var(--orange); }
-    .social-btn.bot { background: var(--cyan); }
-    .social-btn.facebook { background: #4267B2; }
-    .social-btn:hover {
-      transform: translateY(-4px) scale(1.05);
-    }
+    .mobile-link { display: block; }
 
     /* Features */
     .feature {
-      background: white;
+      background: #fff;
       padding: 1.5rem;
       border-radius: 1rem;
       text-align: center;
@@ -68,62 +49,72 @@
       color: var(--brown);
       transition: 0.3s;
     }
-    .feature:hover {
-      transform: translateY(-6px);
+    .feature:hover { transform: translateY(-6px); }
+
+    /* Social Buttons */
+    .social-btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 1rem;
+      font-weight: bold;
+      color: white;
+      transition: 0.3s;
     }
-    .feature svg {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 1rem;
-      fill: var(--cyan);
-    }
+    .social-btn.bot { background: var(--cyan); }
+    .social-btn.telegram { background: var(--orange); }
+    .social-btn.facebook { background: #4267B2; }
+    .social-btn:hover { transform: translateY(-4px) scale(1.05); }
+
+    #overlay { transition: opacity 0.3s ease; }
   </style>
 </head>
 
 <body>
 
-<!-- Navbar -->
+<!-- ================= Navbar (كما أرسلته بدون أي تعديل) ================= -->
 <nav class="fixed w-full z-50 bg-[var(--brown)]/90 backdrop-blur-md shadow-lg">
-  <div class="max-w-7xl mx-auto px-4">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="images/logo-edu.jpg" class="w-12 h-12 rounded-full">
-        <h1 class="text-xl font-extrabold text-white">رحلة تالتة ثانوي</h1>
+
+      <a href="index.html" class="flex items-center space-x-3 transition-transform duration-300 hover:scale-105 hover:-translate-y-1">
+        <img src="images/logo-edu.jpg" alt="شعار رحلة تالتة ثانوي" class="w-12 h-12 rounded-full shadow-lg">
+        <h1 class="text-xl sm:text-2xl font-extrabold text-white drop-shadow-lg">رحلة تالتة ثانوي</h1>
       </a>
 
-      <div class="hidden sm:flex gap-8">
+      <div class="hidden sm:flex flex-1 justify-center space-x-10">
         <a href="index.html" class="nav-link">الرئيسية</a>
         <a href="course2.html" class="nav-link">المتابعة الذكية</a>
         <a href="faq.html" class="nav-link">الأسئلة الشائعة</a>
         <a href="about.html" class="nav-link">عن الرحلة</a>
       </div>
 
-      <button id="mobile-menu-btn" class="sm:hidden text-white text-2xl">
-        <span id="menu-icon">☰</span>
-        <span id="close-icon" class="hidden">✖</span>
-      </button>
+      <div class="sm:hidden relative z-50">
+        <button id="mobile-menu-btn" class="p-2 rounded-md hover:bg-white/10 transition text-white text-2xl">
+          <span id="menu-icon">☰</span>
+          <span id="close-icon" class="hidden">✖</span>
+        </button>
+      </div>
+
     </div>
   </div>
 </nav>
 
-<!-- Overlay -->
 <div id="overlay" class="fixed inset-0 bg-black/40 hidden z-40"></div>
 
-<!-- Mobile Menu -->
-<div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-[var(--brown)] p-6 space-y-4 transform translate-x-full transition z-50">
+<div id="mobile-menu"
+     class="fixed top-0 right-0 h-full w-64 bg-[var(--brown)]/95 backdrop-blur-md p-6 space-y-4 shadow-lg transform translate-x-full transition duration-300 z-50">
   <a href="index.html" class="mobile-link">الرئيسية</a>
   <a href="course2.html" class="mobile-link">المتابعة الذكية</a>
   <a href="faq.html" class="mobile-link">الأسئلة الشائعة</a>
   <a href="about.html" class="mobile-link">عن الرحلة</a>
 </div>
 
-<!-- Hero -->
+<!-- ================= Hero ================= -->
 <section class="pt-28 pb-20 text-center bg-[var(--brown)] text-white">
   <h2 class="text-4xl font-extrabold mb-4" data-aos="fade-down">عن رحلة تالتة ثانوي</h2>
   <p class="text-lg" data-aos="fade-up">منصة تعليمية متكاملة لطلاب الثانوية العامة</p>
 </section>
 
-<!-- About -->
+<!-- ================= Content ================= -->
 <section class="max-w-5xl mx-auto px-4 py-12" data-aos="fade-up">
   <p class="text-gray-700 text-lg mb-6">
     رحلة تالتة ثانوي منصة تعليمية لمتابعة طلاب الصف الثالث الثانوي وتنظيم المذاكرة بدون ضغط أو تراكم.
@@ -136,7 +127,7 @@
   </div>
 </section>
 
-<!-- Contact -->
+<!-- ================= Contact ================= -->
 <section class="max-w-5xl mx-auto px-4 py-12 bg-[var(--beige)] rounded-xl">
   <h2 class="text-2xl font-bold text-center text-[var(--brown)] mb-6">تواصل معنا</h2>
   <div class="flex justify-center gap-4 flex-wrap">
@@ -146,30 +137,8 @@
   </div>
 </section>
 
-<!-- Footer -->
+<!-- ================= Footer + حقوق الملكية ================= -->
 <footer class="bg-[var(--brown)] text-white mt-16">
-  <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 py-10 px-6">
-    <div>
-      <h4 class="font-bold text-lg text-[var(--orange)] mb-3">رحلة تالتة ثانوي</h4>
-      <p class="text-sm text-gray-200">أفضل أنظمة متابعة ذكية لطلاب الثانوية العامة.</p>
-    </div>
-
-    <div>
-      <h4 class="font-bold text-lg text-[var(--orange)] mb-3">روابط سريعة</h4>
-      <ul class="space-y-2 text-sm">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="course2.html">المتابعة الذكية</a></li>
-        <li><a href="faq.html">الأسئلة الشائعة</a></li>
-        <li><a href="about.html">عن الرحلة</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h4 class="font-bold text-lg text-[var(--orange)] mb-3">تواصل معنا</h4>
-      <a href="https://t.me/ThanaWayOfficial_team">دعم الرحلة</a>
-    </div>
-  </div>
-
   <div class="border-t border-gray-700 py-4 text-center text-sm text-gray-300">
     © 2025 جميع الحقوق محفوظة لموقع رحلة تالتة ثانوي <br>
     تصميم وتطوير:
